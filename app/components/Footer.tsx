@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2.5">
               <div className="p-1.5 rounded-xl bg-red-700">
                 <Image
-                  src="/img/logo/lextel.png"
+                  src="/img/logo/lextel.svg"
                   alt="Lextel Logo"
                   width={60}
                   height={60}

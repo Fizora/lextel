@@ -206,7 +206,7 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
         categoryLabel: "Institutional Website",
         client: "B2B Service & Institutional Provider",
         title: "High-Authority Corporate & Public Portal",
-        previewImage: "/img/portfolio/adpplumbing-preview.png",
+        previewImage: "/img/content/dashboard.png",
         problem:
           "The legacy site loaded slowly on mobile, required developer intervention for basic text edits, and failed to establish trust with enterprise partners.",
         solution:

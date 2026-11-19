@@ -31,7 +31,7 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
       {/* Top Bar / Navigation Back */}
-      <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 py-4">
+      {/* <div className="border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 py-4">
         <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 flex items-center justify-between">
           <Link
             href="/"
@@ -40,11 +40,11 @@ export default function ProjectsPage() {
             <LuChevronLeft className="size-4" />
             <span>{lang === "id" ? "Kembali ke Beranda" : "Back to Home"}</span>
           </Link>
-          <div className="text-xs font-mono text-slate-400">
+          <div className="text-xs  text-slate-400">
             Lexentify Systems Directory
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Header Section */}
       <section className="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800">
@@ -73,7 +73,7 @@ export default function ProjectsPage() {
 
             {/* Filter Bar */}
             <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-              <div className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500 mr-2">
+              <div className="inline-flex items-center gap-1.5 text-xs  text-slate-500 mr-2">
                 <LuSlidersHorizontal className="size-3.5" />
                 <span>{lang === "id" ? "Filter Kategori:" : "Filter:"}</span>
               </div>
@@ -118,12 +118,12 @@ export default function ProjectsPage() {
                       <span className="size-2.5 rounded-full bg-amber-400" />
                       <span className="size-2.5 rounded-full bg-emerald-400" />
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400 truncate max-w-xs">
+                    <span className="text-[11px]  text-slate-400 truncate max-w-xs">
                       {item.liveUrl
                         ? item.liveUrl.replace("https://", "")
                         : `lextel.app/${item.slug}`}
                     </span>
-                    <span className="text-[10px] font-mono text-red-600 dark:text-red-400 font-semibold px-2 py-0.5 rounded bg-red-50 dark:bg-red-950">
+                    <span className="text-[10px]  text-red-600 dark:text-red-400 font-semibold px-2 py-0.5 rounded bg-red-50 dark:bg-red-950">
                       SYSTEM PREVIEW
                     </span>
                   </div>
@@ -145,11 +145,11 @@ export default function ProjectsPage() {
                   <div>
                     {/* Metadata Header */}
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/80 border border-red-200 dark:border-red-900/70 px-2.5 py-1 rounded-lg">
+                      <span className="inline-flex items-center gap-1.5 text-xs  font-semibold text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/80 border border-red-200 dark:border-red-900/70 px-2.5 py-1 rounded-lg">
                         <LuLayers className="size-3.5" />
                         {item.categoryLabel}
                       </span>
-                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                      <span className="text-xs  text-slate-500 dark:text-slate-400">
                         Client: {item.client}
                       </span>
                     </div>
@@ -162,19 +162,19 @@ export default function ProjectsPage() {
                     {/* Problem & Solution Stack */}
                     <div className="space-y-5 font-sans text-sm leading-relaxed mb-6">
                       <div className="p-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-                        <span className="block text-[11px] font-mono uppercase tracking-wider text-red-600 dark:text-red-400 font-semibold mb-1">
+                        <span className="block text-[11px]  uppercase tracking-wider text-red-600 dark:text-red-400 font-semibold mb-1">
                           {content.labels.problem}
                         </span>
-                        <p className="text-slate-600 dark:text-slate-300">
+                        <p className="text-base text-slate-600 dark:text-slate-300">
                           {item.problem}
                         </p>
                       </div>
 
                       <div className="p-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-                        <span className="block text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1">
+                        <span className="block text-[11px]  uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1">
                           {content.labels.solution}
                         </span>
-                        <p className="text-slate-700 dark:text-slate-200">
+                        <p className="text-base text-slate-700 dark:text-slate-200">
                           {item.solution}
                         </p>
                       </div>
@@ -187,7 +187,7 @@ export default function ProjectsPage() {
                         <span className="block text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-0.5">
                           {content.labels.impact}
                         </span>
-                        <p className="text-sm text-slate-700 dark:text-slate-300 font-medium">
+                        <p className="text-base text-slate-700 dark:text-slate-300 font-medium">
                           {item.impact}
                         </p>
                       </div>
@@ -200,7 +200,7 @@ export default function ProjectsPage() {
                       {item.tech.map((techName, idx) => (
                         <span
                           key={idx}
-                          className="px-2.5 py-1 rounded-md bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400"
+                          className="px-2.5 py-1 rounded-md bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs  text-slate-600 dark:text-slate-400"
                         >
                           {techName}
                         </span>

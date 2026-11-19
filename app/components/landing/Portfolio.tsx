@@ -36,7 +36,7 @@ export default function Portfolio() {
         {/* Header + Filter Bar */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 md:mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/70 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-300 text-xs sm:text-sm font-medium mb-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/70 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-300 text-xs sm:text-base font-medium mb-5">
               <LuFolderGit2 className="text-red-600 dark:text-red-400 shrink-0" />
               <span>{content.badge}</span>
             </div>
@@ -62,7 +62,7 @@ export default function Portfolio() {
                   key={filter.key}
                   type="button"
                   onClick={() => setActiveFilter(filter.key)}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-base font-semibold transition-all cursor-pointer ${
                     isActive
                       ? "bg-red-600 text-white shadow-sm"
                       : "bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-red-300 dark:hover:border-red-800"
@@ -141,7 +141,7 @@ export default function Portfolio() {
                   </h3>
 
                   {/* Structured Case Study Breakdown */}
-                  <div className="space-y-4 font-sans text-sm leading-relaxed mb-6">
+                  <div className="space-y-4 font-sans text-base leading-relaxed mb-6">
                     <div>
                       <span className="block text-[11px] font-sans uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
                         {content.labels.problem}
@@ -164,7 +164,7 @@ export default function Portfolio() {
                   {/* Impact Highlight Box */}
                   <div className="p-3.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5 mb-6">
                     <LuCircleCheck className="text-red-600 dark:text-red-500 size-4 shrink-0 mt-0.5" />
-                    <div className="text-xs sm:text-sm">
+                    <div className="text-xs sm:text-base">
                       <span className="font-semibold text-slate-900 dark:text-white mr-1.5">
                         {content.labels.impact}:
                       </span>
@@ -193,7 +193,7 @@ export default function Portfolio() {
                   <div className="flex flex-wrap items-center gap-4 shrink-0">
                     <Link
                       href={`/projects#${item.slug}`}
-                      className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                      className="inline-flex items-center gap-1 text-xs sm:text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                     >
                       <span>{content.labels.viewDetail}</span>
                       <LuArrowRight className="size-3.5" />
@@ -204,7 +204,7 @@ export default function Portfolio() {
                         href={item.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                        className="inline-flex items-center gap-1 text-xs sm:text-base font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
                       >
                         <span>{content.labels.viewDemo}</span>
                         <LuArrowUpRight className="size-4" />
@@ -219,12 +219,12 @@ export default function Portfolio() {
 
         {/* Bottom CTA ke Halaman /projects */}
         <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="font-sans text-sm sm:text-base font-medium text-slate-700 dark:text-slate-200">
+          <p className="font-sans text-base sm:text-base font-medium text-slate-700 dark:text-slate-200">
             {content.bottomCta.note}
           </p>
           <Link
             href={content.bottomCta.href}
-            className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-sm transition-colors shrink-0"
+            className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-base font-semibold px-5 py-3 rounded-xl shadow-sm transition-colors shrink-0"
           >
             <span>{content.bottomCta.label}</span>
             <LuArrowRight className="size-4" />

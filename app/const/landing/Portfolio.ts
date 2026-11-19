@@ -96,7 +96,7 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
         categoryLabel: "Aplikasi Web",
         client: "Perusahaan Jasa & Teknisi Lapangan",
         title: "Portal Penjadwalan & Estimasi Layanan",
-        previewImage: "/img/content/dashboard.jpg",
+        previewImage: "/img/content/wcaircon.png",
         problem:
           "Calon pelanggan kesulitan mendapatkan estimasi biaya cepat dan tim admin kewalahan mengatur jadwal kunjungan teknisi melalui pesan chat manual.",
         solution:
@@ -113,7 +113,7 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
         categoryLabel: "Website Institusi",
         client: "Instansi & Penyedia Jasa B2B",
         title: "Situs Korporat & Pusat Dokumen Publik",
-        previewImage: "/img/content/dashboard.jpg",
+        previewImage: "/img/content/adpplumbing.png",
         problem:
           "Website lama lambat diakses dari ponsel, sulit diperbarui oleh staf non-teknis, dan gagal menampilkan kredibilitas institusi di hadapan mitra.",
         solution:
@@ -190,7 +190,7 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
         categoryLabel: "Web Application",
         client: "Field Service & Technical Operations",
         title: "Instant Dispatch & Quote Portal",
-        previewImage: "/img/content/dashboard.jpg",
+        previewImage: "/img/content/wcaircon.png",
         problem:
           "Prospective clients struggled to get fast service quotes while dispatchers were overwhelmed coordinating field technicians manually over chat.",
         solution:
@@ -206,7 +206,7 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
         categoryLabel: "Institutional Website",
         client: "B2B Service & Institutional Provider",
         title: "High-Authority Corporate & Public Portal",
-        previewImage: "/img/content/dashboard.jpg",
+        previewImage: "/img/content/adpplumbing.png",
         problem:
           "The legacy site loaded slowly on mobile, required developer intervention for basic text edits, and failed to establish trust with enterprise partners.",
         solution:

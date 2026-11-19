@@ -118,13 +118,16 @@ const Navbar = () => {
               href="/"
               className="flex items-center gap-2 focus:outline-none"
             >
-              <Image
+              {/* <Image
                 src="/img/logo/lextel.svg"
                 alt="logo"
                 width={34}
                 height={34}
                 className="sm:w-10 sm:h-10"
-              />
+              /> */}
+              <span className="font-mono text-2xl font-bold tracking-wider text-white">
+                LEXTEL
+              </span>
             </Link>
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-1 font-sans text-sm font-medium">
@@ -227,12 +230,15 @@ const Navbar = () => {
         <div>
           <div className="flex items-center justify-between pb-5 border-b border-red-700 dark:border-red-800">
             <div className="flex items-center gap-2">
-              <Image
+              {/* <Image
                 src="/img/logo/lextel.svg"
                 alt="logo"
                 width={30}
                 height={30}
-              />
+              /> */}
+              <span className="font-mono text-2xl font-bold tracking-wider text-white">
+                LEXTEL
+              </span>
             </div>
             <button
               onClick={() => setIsOpen(false)}

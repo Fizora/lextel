@@ -128,7 +128,7 @@ export const termsContentByLang: Record<LangCode, TermsContent> = {
       },
     ],
     contactText:
-      "Jika Anda memiliki pertanyaan mengenai Ketentuan ini, silakan hubungi kami di",
+      "Jika Anda memiliki pertanyaan mengenai Ketentuan ini, silakan hubungi kami",
     contactCta: "business@lexentify.com",
   },
 };

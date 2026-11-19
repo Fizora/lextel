@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import {
-  Bruno_Ace_SC,
-  Geist,
-  Geist_Mono,
-  Noto_Sans_Georgian,
-} from "next/font/google";
+import { Bruno_Ace_SC, Geist, Inter } from "next/font/google";
 import { LanguageProvider } from "@/app/context/LangaugeContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
+const geistSans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -36,10 +31,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 selection:bg-red-600 selection:text-white">
+      <body className="min-h-full flex flex-col bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 selection:bg-red-600 selection:text-white text-base lg:text-lg">
         <ThemeProvider>
           <LanguageProvider>
             <Navbar />

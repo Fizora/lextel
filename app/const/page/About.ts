@@ -41,7 +41,7 @@ export interface AboutPageContent {
 
 export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
   id: {
-    badge: "Tentang Lextel",
+    badge: "Tentang LEXTEL",
     titleMain: "Membangun sistem yang",
     titleHighlight: "benar-benar dipakai.",
     subtitle:
@@ -116,7 +116,7 @@ export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
     },
   },
   en: {
-    badge: "About Lextel",
+    badge: "About LEXTEL",
     titleMain: "Engineering systems that",
     titleHighlight: "actually get used.",
     subtitle:

@@ -284,7 +284,7 @@ function BarChart({
               }}
             />
           </div>
-          <span className="w-12 text-right font-mono font-semibold text-gray-800 dark:text-slate-200">
+          <span className="w-12 text-right font-sans font-semibold text-gray-800 dark:text-slate-200">
             {fmt(d.value)}
           </span>
         </div>
@@ -320,7 +320,7 @@ function ColumnChart({
             onMouseLeave={() => setHover(null)}
           >
             {hover === i && (
-              <div className="absolute -top-1 text-[10px] font-mono font-semibold text-gray-900 dark:text-slate-100 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded px-1.5 py-0.5 whitespace-nowrap z-10">
+              <div className="absolute -top-1 text-[10px] font-sans font-semibold text-gray-900 dark:text-slate-100 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded px-1.5 py-0.5 whitespace-nowrap z-10">
                 {fmt(d.value)}
               </div>
             )}
@@ -440,7 +440,7 @@ function DonutChart({
                 {d.label}
               </span>
             </span>
-            <span className="font-mono font-semibold text-gray-900 dark:text-slate-100 shrink-0">
+            <span className="font-sans font-semibold text-gray-900 dark:text-slate-100 shrink-0">
               {((d.value / total) * 100).toFixed(0)}%
             </span>
           </div>
@@ -1016,7 +1016,7 @@ export default function Hero() {
                               <td className="px-4 py-2.5 text-gray-600 dark:text-slate-400">
                                 {r.period}
                               </td>
-                              <td className="px-4 py-2.5 font-mono text-gray-800 dark:text-slate-200">
+                              <td className="px-4 py-2.5 font-sans text-gray-800 dark:text-slate-200">
                                 {r.value}
                               </td>
                               <td className="px-4 py-2.5">
@@ -1094,14 +1094,14 @@ export default function Hero() {
                                       <div className="font-medium text-gray-900 dark:text-slate-100">
                                         {item.name}
                                       </div>
-                                      <div className="text-[11px] font-mono text-gray-400 dark:text-slate-500">
+                                      <div className="text-[11px] font-sans text-gray-400 dark:text-slate-500">
                                         {item.sku}
                                       </div>
                                     </td>
                                     <td className="px-4 py-2.5 text-gray-700 dark:text-slate-300">
                                       {item.price}
                                     </td>
-                                    <td className="px-4 py-2.5 font-mono font-semibold text-gray-900 dark:text-slate-100">
+                                    <td className="px-4 py-2.5 font-sans font-semibold text-gray-900 dark:text-slate-100">
                                       {stock}
                                     </td>
                                     <td className="px-4 py-2.5">
@@ -1180,7 +1180,7 @@ export default function Hero() {
                                   <div className="text-[13px] font-medium text-gray-900 dark:text-slate-100">
                                     {item.name}
                                   </div>
-                                  <div className="text-[11px] text-gray-500 dark:text-slate-400 font-mono">
+                                  <div className="text-[11px] text-gray-500 dark:text-slate-400 font-sans">
                                     {item.sku} • min {item.minStock}
                                   </div>
                                 </div>
@@ -1230,7 +1230,7 @@ export default function Hero() {
                               <div className="text-[12px] font-semibold text-gray-900 dark:text-slate-100 mt-2 text-center truncate w-full">
                                 {w.name}
                               </div>
-                              <div className="text-[10px] text-gray-500 dark:text-slate-400 font-mono">
+                              <div className="text-[10px] text-gray-500 dark:text-slate-400 font-sans">
                                 {w.items.toLocaleString()} /{" "}
                                 {w.capacity.toLocaleString()}
                               </div>
@@ -1265,7 +1265,7 @@ export default function Hero() {
                           <h3 className="text-[13px] font-semibold text-gray-900 dark:text-slate-100">
                             {dash.modules.accounting.balanceLabel}
                           </h3>
-                          <span className="text-[13px] font-mono font-semibold text-emerald-700 dark:text-emerald-400">
+                          <span className="text-[13px] font-sans font-semibold text-emerald-700 dark:text-emerald-400">
                             {dash.modules.accounting.balanceValue}
                           </span>
                         </div>
@@ -1277,7 +1277,7 @@ export default function Hero() {
                             >
                               <div className="min-w-0">
                                 <div className="flex items-center gap-2 text-[11px]">
-                                  <span className="font-mono font-semibold text-gray-500 dark:text-slate-400">
+                                  <span className="font-sans font-semibold text-gray-500 dark:text-slate-400">
                                     {entry.code}
                                   </span>
                                   <span className="text-gray-400 dark:text-slate-500">
@@ -1289,7 +1289,7 @@ export default function Hero() {
                                 </div>
                               </div>
                               <span
-                                className={`text-[12px] font-mono font-semibold px-2.5 py-1 rounded shrink-0 ${
+                                className={`text-[12px] font-sans font-semibold px-2.5 py-1 rounded shrink-0 ${
                                   entry.type === "in"
                                     ? "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300"
                                     : "bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300"
@@ -1315,7 +1315,7 @@ export default function Hero() {
                               ? "Arus Kas Masuk vs Keluar"
                               : "Inflow vs Outflow"}
                           </div>
-                          <span className="text-[12px] font-mono font-semibold text-emerald-700 dark:text-emerald-400">
+                          <span className="text-[12px] font-sans font-semibold text-emerald-700 dark:text-emerald-400">
                             {dash.modules.accounting.balanceValue}
                           </span>
                         </div>
@@ -1449,13 +1449,13 @@ export default function Hero() {
                                   key={o.code}
                                   className="hover:bg-gray-50 dark:hover:bg-slate-800/60"
                                 >
-                                  <td className="px-4 py-2.5 font-mono font-semibold text-gray-700 dark:text-slate-300">
+                                  <td className="px-4 py-2.5 font-sans font-semibold text-gray-700 dark:text-slate-300">
                                     {o.code}
                                   </td>
                                   <td className="px-4 py-2.5 text-gray-900 dark:text-slate-100">
                                     {o.vendor}
                                   </td>
-                                  <td className="px-4 py-2.5 font-mono text-gray-800 dark:text-slate-200">
+                                  <td className="px-4 py-2.5 font-sans text-gray-800 dark:text-slate-200">
                                     {o.total}
                                   </td>
                                   <td className="px-4 py-2.5">

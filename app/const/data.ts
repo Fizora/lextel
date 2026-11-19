@@ -45,12 +45,16 @@ const enContent = {
     description:
       "Digital engineering studio building custom operational systems, high-performance web applications, and reliable software tailored to real workflows.",
     license: "Lextel by Lexentify • Engineered for Real Operations",
-    navTitle: "Navigation",
-    servicesTitle: "Services",
-    contactTitle: "Get in Touch",
-    privacyLabel: "Privacy Policy",
+    ctaTitle: "Start a project or stay updated",
+    ctaPlaceholder: "Enter your work email",
+    ctaDisclaimer: "BY SUBMITTING YOU AGREE TO OUR TERMS.",
+    navTitle: "NAVIGATION",
+    servicesTitle: "SERVICES",
+    contactTitle: "GET IN TOUCH",
+    hoursTitle: "OPERATIONAL",
+    privacyLabel: "PRIVACY POLICY",
     privacyHref: "/privacy",
-    termsLabel: "Terms of Service",
+    termsLabel: "TERMS OF SERVICE",
     termsHref: "/terms",
     quickLinks: [
       { label: "Home", href: "/" },
@@ -61,13 +65,12 @@ const enContent = {
       { label: "FAQ", href: "/#faq" },
     ],
     serviceLinks: [
-      // PERBAIKAN: Menambahkan ID anchor sesuai halaman services
       { label: "Custom Operational Systems", href: "/services#ops-system" },
       { label: "Web Applications & SaaS", href: "/services#web-app" },
       { label: "Institutional Websites", href: "/services#company-profile" },
       { label: "System Maintenance", href: "/services#maintenance" },
     ],
-    copyright: "© 2026 Lextel. All rights reserved.",
+    copyright: "© 2026 LEXTEL BY LEXENTIFY. ALL RIGHTS RESERVED.",
   },
 };
 
@@ -80,12 +83,16 @@ export const landingContentByLang: Record<LangCode, LandingContentType> = {
       description:
         "Studio rekayasa digital yang membangun sistem operasional kustom, aplikasi web berperforma tinggi, dan perangkat lunak yang disesuaikan dengan alur kerja nyata.",
       license: "Lextel oleh Lexentify • Dirancang untuk Operasional Nyata",
-      navTitle: "Navigasi",
-      servicesTitle: "Layanan",
-      contactTitle: "Hubungi Kami",
-      privacyLabel: "Kebijakan Privasi",
+      ctaTitle: "Diskusikan kebutuhan sistem Anda",
+      ctaPlaceholder: "Masukkan email institusi / kerja",
+      ctaDisclaimer: "DENGAN MENGIRIM ANDA MENYETUJUI SYARAT & KETENTUAN.",
+      navTitle: "NAVIGASI",
+      servicesTitle: "LAYANAN",
+      contactTitle: "HUBUNGI KAMI",
+      hoursTitle: "JAM OPERASIONAL",
+      privacyLabel: "KEBIJAKAN PRIVASI",
       privacyHref: "/privacy",
-      termsLabel: "Syarat & Ketentuan",
+      termsLabel: "SYARAT & KETENTUAN",
       termsHref: "/terms",
       quickLinks: [
         { label: "Beranda", href: "/" },
@@ -96,13 +103,13 @@ export const landingContentByLang: Record<LangCode, LandingContentType> = {
         { label: "FAQ", href: "/#faq" },
       ],
       serviceLinks: [
-        // PERBAIKAN: Menambahkan ID anchor sesuai halaman services
         { label: "Sistem Operasional Kustom", href: "/services#ops-system" },
         { label: "Aplikasi Web & SaaS", href: "/services#web-app" },
         { label: "Website Institusi", href: "/services#company-profile" },
         { label: "Pemeliharaan Sistem", href: "/services#maintenance" },
       ],
-      copyright: "© 2026 Lextel. Hak cipta dilindungi undang-undang.",
+      copyright:
+        "© 2026 LEXTEL BY LEXENTIFY. HAK CIPTA DILINDUNGI UNDANG-UNDANG.",
     },
   },
 };

@@ -137,7 +137,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-red-50/50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 text-xs sm:text-sm text-red-900 dark:text-red-200 font-medium">
+                  <div className="p-4 rounded-xl bg-red-50/50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 text-sm sm:text-base text-red-900 dark:text-red-200 font-medium">
                     {service.target}
                   </div>
 
@@ -175,7 +175,7 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {t.steps.map((step, idx) => (
             <div
               key={idx}
@@ -188,7 +188,7 @@ export default function ServicesPage() {
                 <h3 className="text-lg font-bold font-sans mb-2">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p className="text-sm lg:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
                   {step.desc}
                 </p>
               </div>

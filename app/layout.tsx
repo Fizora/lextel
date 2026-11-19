@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bruno_Ace_SC, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 const geistSans = Inter({
   variable: "--font-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
+        <Navbar />
         <main>{children}</main>
       </body>
     </html>

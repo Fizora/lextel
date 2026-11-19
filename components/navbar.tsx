@@ -51,7 +51,6 @@ export default function Navbar() {
         aria-label="Main"
         className="mx-auto flex h-16 w-full max-w-330 items-center justify-between px-6 md:h-18 md:px-10"
       >
-        {/* Logo */}
         <Link
           href="/"
           className="group inline-flex items-center gap-2 rounded-full text-[15px] font-semibold tracking-[-0.03em] text-white outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-4 focus-visible:ring-offset-[#050505]"
@@ -59,7 +58,6 @@ export default function Navbar() {
           Lumen
         </Link>
 
-        {/* Desktop links */}
         <ul className="hidden items-center gap-1 md:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
@@ -73,7 +71,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop CTA */}
         <Link
           href="#contact"
           className="hidden items-center gap-2.5 rounded-full bg-white px-5 py-2.5 text-[13px] font-medium leading-none text-[#050505] outline-none transition-colors duration-300 hover:bg-[#EDEDED] focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] md:inline-flex"
@@ -81,7 +78,6 @@ export default function Navbar() {
           Start a Project
         </Link>
 
-        {/* Mobile toggle */}
         <button
           type="button"
           aria-expanded={open}
@@ -103,7 +99,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div

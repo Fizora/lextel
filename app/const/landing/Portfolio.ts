@@ -80,7 +80,7 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
         categoryLabel: "Sistem Operasional",
         client: "Lembaga Pendidikan & Pesantren",
         title: "Sistem Administrasi & Keuangan Terpadu",
-        previewImage: "/img/content/dashboard.jpg ",
+        previewImage: "/img/content/dashboard.jpg",
         problem:
           "Pencatatan tagihan bulanan, perizinan santri, dan laporan kas tersebar di belasan file spreadsheet terpisah sehingga rekapitulasi akhir bulan memakan waktu berhari-hari.",
         solution:

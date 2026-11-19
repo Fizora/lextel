@@ -2,17 +2,15 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-}
+@theme {
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 
-body {
-  font-family: var(--font-sans), sans-serif;
-}
-
-h1,
-h2,
-h3 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  --color-ink: #0d0907;
+  --color-surface: #16100c;
+  --color-line: #2a1f18;
+  --color-line-strong: #3d2d22;
+  --color-fg: #f6efe8;
+  --color-muted: #9b8d80;
+  --color-ember: #ff6a1f;
+  --color-ember-soft: #ff8a4d;
 }

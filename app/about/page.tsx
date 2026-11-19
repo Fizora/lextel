@@ -86,7 +86,7 @@ export default function AboutPage() {
             {t.principlesTitle}
           </h2>
 
-          <p className="font-sans text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="font-sans text-sm lg:text-lg  text-slate-600 dark:text-slate-300 leading-relaxed">
             {t.principlesSubtitle}
           </p>
         </div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 <h3 className="font-sans text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2.5">
                   {item.title}
                 </h3>
-                <p className="font-sans text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="font-sans text-sm lg:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <h2 className="font-sans text-2xl sm:text-4xl font-bold tracking-tight">
               {t.ctaTitle}
             </h2>
-            <p className="font-sans text-sm sm:text-base text-red-100 leading-relaxed">
+            <p className="font-sans text-sm lg:text-base text-red-100 leading-relaxed">
               {t.ctaDescription}
             </p>
           </div>

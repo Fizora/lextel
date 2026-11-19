@@ -50,7 +50,7 @@ export default function TermsPage() {
                 {section.content.map((paragraph, idx) => (
                   <p
                     key={idx}
-                    className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+                    className="text-sm lg:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
                   >
                     {paragraph}
                   </p>

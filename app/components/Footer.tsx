@@ -29,78 +29,71 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-slate-50 dark:bg-[#0D0D0D] border-t border-slate-200 dark:border-white/10 text-slate-800 dark:text-neutral-200 transition-colors duration-200 text-base">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
-        {/* 1. TOP SECTION: Brand & Deskripsi (Kiri) + Pill Input CTA (Kanan) */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 pb-14">
-          {/* Kiri: Logo & Tagline */}
-          <div className="max-w-lg space-y-5">
+    <footer className="relative overflow-hidden bg-white dark:bg-[#050505] border-t border-black/10 dark:border-white/10 text-black dark:text-white transition-colors duration-200">
+      <div className="mx-auto max-w-360 px-6 md:px-10 pt-20">
+        {/* 1. TOP SECTION */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 pb-16">
+          <div className="max-w-lg space-y-6">
             <Link href="/" className="inline-flex items-center gap-3">
-              <div className="p-1.5">
-                <Image
-                  src="/img/logo/lextel.svg"
-                  alt="Lextel Logo"
-                  width={80}
-                  height={80}
-                />
-              </div>
-              {/* <span className="font-mono text-2xl font-bold tracking-wider text-slate-900 dark:text-white">
-                LEXTEL
-              </span> */}
+              <Image
+                src="/img/logo/lextel.svg"
+                alt="Lextel Logo"
+                width={80}
+                height={80}
+                className="dark:invert"
+              />
             </Link>
-
-            <p className="font-sans text-base lg:text-lg text-slate-700 dark:text-neutral-200 leading-relaxed">
+            <p className="text-[14px] leading-relaxed text-black/60 dark:text-white/60">
               {content.description}
             </p>
           </div>
 
-          {/* Kanan: Form Input Pill seperti di gambar */}
-          <div className="w-full max-w-md space-y-3">
-            <p className="font-sans text-base font-semibold text-slate-900 dark:text-white">
+          {/* Form */}
+          <div className="w-full max-w-md space-y-4">
+            <p className="text-[11px] font-bold uppercase tracking-widest">
               {content.ctaTitle}
             </p>
-
             <form
               onSubmit={handleQuickContact}
-              className="flex items-center rounded-full bg-white dark:bg-[#161616] border border-slate-300 dark:border-white/20 pl-4 pr-1.5 py-1.5 focus-within:border-red-600 dark:focus-within:border-white/50 transition-colors"
+              className="flex items-center border border-black/20 dark:border-white/20 bg-transparent focus-within:border-black dark:focus-within:border-white transition-colors rounded-none"
             >
-              <LuMail className="size-5 text-slate-500 dark:text-neutral-400 shrink-0 mr-3" />
+              <div className="pl-4 pr-3 shrink-0">
+                <LuMail className="size-4 text-black/40 dark:text-white/40" />
+              </div>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={content.ctaPlaceholder}
-                className="w-full bg-transparent text-base text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-neutral-500 focus:outline-none"
+                className="w-full bg-transparent py-3 text-[13px] placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none"
               />
               <button
                 type="submit"
-                aria-label="Submit email"
-                className="size-10 rounded-full bg-slate-900 dark:bg-[#2A2A2A] hover:bg-red-700 dark:hover:bg-red-700 text-white flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                className="h-11.5 px-5 bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 flex items-center justify-center shrink-0 transition-colors cursor-pointer rounded-none"
               >
-                <LuArrowRight className="size-5" />
+                <LuArrowRight className="size-4" />
               </button>
             </form>
-
-            <p className="font-sans text-xs text-slate-600 dark:text-neutral-400">
+            <p className="text-[10px] uppercase tracking-widest text-black/40 dark:text-white/40">
               {content.ctaDisclaimer}
             </p>
           </div>
         </div>
 
-        {/* 2. MIDDLE SECTION: 4 Kolom Menu Sejajar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-12 border-t border-slate-200 dark:border-white/10">
-          {/* Kolom 1: Navigasi */}
+        {/* 2. MIDDLE SECTION */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-12 border-t border-black/10 dark:border-white/10">
+          {/* Kolom 1 */}
           <div>
-            <h3 className="font-sans text-base font-bold uppercase tracking-wide text-slate-900 dark:text-white mb-5">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
               {content.navTitle}
             </h3>
-            <ul className="space-y-3 font-sans text-base">
+            <ul className="space-y-3 text-[13px]">
               {content.quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-slate-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-white transition-colors"
+                    className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -109,17 +102,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 2: Layanan */}
+          {/* Kolom 2 */}
           <div>
-            <h3 className="font-sans text-base font-bold uppercase tracking-wide text-slate-900 dark:text-white mb-5">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
               {content.servicesTitle}
             </h3>
-            <ul className="space-y-3 font-sans text-base">
+            <ul className="space-y-3 text-[13px]">
               {content.serviceLinks.map((service, index) => (
                 <li key={index}>
                   <Link
                     href={service.href}
-                    className="text-slate-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-white transition-colors"
+                    className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                   >
                     {service.label}
                   </Link>
@@ -128,16 +121,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 3: Hubungi Kami */}
+          {/* Kolom 3 */}
           <div>
-            <h3 className="font-sans text-base font-bold uppercase tracking-wide text-slate-900 dark:text-white mb-5">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
               {content.contactTitle}
             </h3>
-            <ul className="space-y-3 font-sans text-base">
+            <ul className="space-y-3 text-[13px] font-mono">
               <li>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="text-slate-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-white transition-colors break-all"
+                  className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors break-all"
                 >
                   {contactInfo.email}
                 </a>
@@ -145,7 +138,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="text-slate-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-white transition-colors"
+                  className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                 >
                   {contactInfo.phone}
                 </a>
@@ -153,7 +146,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${contactInfo.phoneTwo}`}
-                  className="text-slate-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-white transition-colors"
+                  className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                 >
                   {contactInfo.phoneTwo}
                 </a>
@@ -161,33 +154,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Kolom 4: Jam Operasional & Lisensi */}
+          {/* Kolom 4 */}
           <div>
-            <h3 className="font-sans text-base font-bold uppercase tracking-wide text-slate-900 dark:text-white mb-5">
+            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
               {content.hoursTitle}
             </h3>
-            <ul className="space-y-3 font-sans text-base text-slate-700 dark:text-neutral-300">
+            <ul className="space-y-3 text-[13px] text-black/60 dark:text-white/60">
               <li>{contactInfo.operationalHours[currentLang]}</li>
-              <li className="leading-relaxed text-slate-600 dark:text-neutral-400">
-                {content.license}
-              </li>
+              <li className="leading-relaxed">{content.license}</li>
             </ul>
           </div>
         </div>
 
-        {/* 3. BOTTOM BAR: Copyright & Legal Links */}
-        <div className="py-6 border-t border-slate-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-base text-slate-600 dark:text-neutral-400">
+        {/* 3. BOTTOM BAR */}
+        <div className="py-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
           <p>{content.copyright}</p>
           <div className="flex flex-wrap items-center gap-6">
             <Link
               href={content.termsHref}
-              className="hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="hover:text-black dark:hover:text-white transition-colors"
             >
               {content.termsLabel}
             </Link>
             <Link
               href={content.privacyHref}
-              className="hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="hover:text-black dark:hover:text-white transition-colors"
             >
               {content.privacyLabel}
             </Link>
@@ -195,14 +186,14 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* 4. GIANT WATERMARK BRAND TEXT (Terpotong setengah di bagian bawah) */}
+      {/* 4. GIANT WATERMARK */}
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none overflow-hidden mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4"
+        className="pointer-events-none select-none overflow-hidden mx-auto max-w-360 px-6 md:px-10 pt-4"
       >
         <svg
           viewBox="0 0 1000 175"
-          className="w-full h-auto block translate-y-[16%] text-slate-200/80 dark:text-white/4"
+          className="w-full h-auto block translate-y-[16%] text-black/3 dark:text-white/3"
           fill="currentColor"
         >
           <text
@@ -211,7 +202,7 @@ export default function Footer() {
             textAnchor="middle"
             textLength="1000"
             lengthAdjust="spacingAndGlyphs"
-            className="font-mono font-black tracking-tighter"
+            className="font-mono font-black tracking-wider"
             style={{ fontSize: "215px" }}
           >
             LEXTEL

@@ -19,7 +19,6 @@ import {
 export default function Portfolio() {
   const { lang } = useLanguage();
   const content = portfolioContentByLang[lang];
-
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
 
   const filteredItems =
@@ -30,25 +29,25 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="py-20 md:py-28 bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800/80 text-slate-900 dark:text-slate-100 transition-colors duration-200"
+      className="py-24 md:py-32 bg-[#fafafa] dark:bg-[#0a0a0a] border-t border-black/10 dark:border-white/10 text-black dark:text-white transition-colors duration-200"
     >
-      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-360 px-6 md:px-10">
         {/* Header + Filter Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 md:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/70 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-300 text-xs sm:text-base font-medium mb-5">
-              <LuFolderGit2 className="text-red-600 dark:text-red-400 shrink-0" />
+            <div className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-black/60 dark:text-white/60 mb-6">
+              <LuFolderGit2 className="size-3" />
               <span>{content.badge}</span>
             </div>
 
-            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.18] mb-4">
-              {content.titleMain}{" "}
-              <span className="text-red-600 dark:text-red-500">
+            <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold uppercase tracking-tight leading-[1.05] mb-6">
+              {content.titleMain} <br />
+              <span className="text-black/30 dark:text-white/30">
                 {content.titleHighlight}
               </span>
             </h2>
 
-            <p className="font-sans text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-[14px] leading-relaxed text-black/60 dark:text-white/60">
               {content.description}
             </p>
           </div>
@@ -62,10 +61,10 @@ export default function Portfolio() {
                   key={filter.key}
                   type="button"
                   onClick={() => setActiveFilter(filter.key)}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-base font-semibold transition-all cursor-pointer ${
+                  className={`px-4 py-2 text-[10px] uppercase tracking-widest font-bold transition-colors cursor-pointer border rounded-none ${
                     isActive
-                      ? "bg-red-600 text-white shadow-sm"
-                      : "bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-red-300 dark:hover:border-red-800"
+                      ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
+                      : "bg-transparent text-black/60 dark:text-white/60 border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white"
                   }`}
                 >
                   {filter.label}
@@ -75,100 +74,99 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Grid Studi Kasus Portofolio */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        {/* Grid Portofolio */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {filteredItems.map((item) => (
             <article
               key={item.id}
-              className="group flex flex-col justify-between rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-red-300 dark:hover:border-red-800 overflow-hidden transition-all duration-200"
+              className="group flex flex-col justify-between border border-black/10 dark:border-white/10 bg-transparent hover:border-black/30 dark:hover:border-white/30 transition-colors duration-200"
             >
               <div>
                 {/* Preview Image Frame */}
                 <Link
                   href={`/projects#${item.slug}`}
-                  className="block border-b border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 overflow-hidden"
+                  className="block border-b border-black/10 dark:border-white/10 overflow-hidden"
                 >
                   {/* Browser Window Top Bar */}
-                  <div className="px-3.5 py-2 bg-slate-100 dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                  <div className="px-4 py-2.5 bg-black/5 dark:bg-white/5 border-b border-black/10 dark:border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
-                      <span className="size-2 rounded-full bg-red-400" />
-                      <span className="size-2 rounded-full bg-amber-400" />
-                      <span className="size-2 rounded-full bg-emerald-400" />
+                      <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
+                      <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
+                      <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
                     </div>
-                    <span className="text-[10px] font-sans text-slate-400 truncate max-w-48">
+                    <span className="text-[9px] font-mono text-black/40 dark:text-white/40 truncate max-w-48">
                       {item.liveUrl
                         ? item.liveUrl.replace("https://", "")
                         : `lextel.app/${item.slug}`}
                     </span>
-                    <span className="text-[10px] font-sans text-red-600 dark:text-red-400 font-medium">
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-black dark:text-white">
                       PREVIEW
                     </span>
                   </div>
 
                   {/* Screenshot Container */}
-                  <div className="relative aspect-video w-full bg-slate-200 dark:bg-slate-900 overflow-hidden">
+                  <div className="relative aspect-video w-full bg-black/5 dark:bg-white/5 overflow-hidden">
                     <Image
                       src={item.previewImage}
                       alt={item.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-top group-hover:scale-103 transition-transform duration-300"
+                      className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
                     />
                   </div>
                 </Link>
 
                 {/* Card Content */}
-                <div className="p-6 sm:p-8 pb-0">
-                  {/* Top Metadata */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-sans font-semibold text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/80 border border-red-200 dark:border-red-900/70 px-2.5 py-1 rounded-lg">
-                      <LuLayers className="size-3.5" />
+                <div className="p-6 sm:p-8">
+                  {/* Metadata */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                    <span className="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest border border-black/20 dark:border-white/20 px-2 py-1">
+                      <LuLayers className="size-3" />
                       {item.categoryLabel}
                     </span>
-                    <span className="text-xs font-sans text-slate-500 dark:text-slate-400">
+                    <span className="text-[10px] uppercase tracking-widest text-black/50 dark:text-white/50 font-bold">
                       {item.client}
                     </span>
                   </div>
 
-                  {/* Project Title (Georgia) */}
-                  <h3 className="font-sans text-2xl font-bold text-slate-900 dark:text-white mb-5">
+                  {/* Project Title */}
+                  <h3 className="text-2xl font-bold uppercase tracking-tight mb-6">
                     <Link
                       href={`/projects#${item.slug}`}
-                      className="hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                      className="hover:text-black/60 dark:hover:text-white/60 transition-colors"
                     >
                       {item.title}
                     </Link>
                   </h3>
 
-                  {/* Structured Case Study Breakdown */}
-                  <div className="space-y-4 font-sans text-base leading-relaxed mb-6">
+                  {/* Breakdown */}
+                  <div className="space-y-5 text-[13px] leading-relaxed mb-6">
                     <div>
-                      <span className="block text-[11px] font-sans uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+                      <span className="block text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-1.5">
                         {content.labels.problem}
                       </span>
-                      <p className="text-slate-600 dark:text-slate-300">
+                      <p className="text-black/70 dark:text-white/70">
                         {item.problem}
                       </p>
                     </div>
-
                     <div>
-                      <span className="block text-[11px] font-sans uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">
+                      <span className="block text-[9px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-1.5">
                         {content.labels.solution}
                       </span>
-                      <p className="text-slate-700 dark:text-slate-200">
+                      <p className="text-black/70 dark:text-white/70">
                         {item.solution}
                       </p>
                     </div>
                   </div>
 
-                  {/* Impact Highlight Box */}
-                  <div className="p-3.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-start gap-2.5 mb-6">
-                    <LuCircleCheck className="text-red-600 dark:text-red-500 size-4 shrink-0 mt-0.5" />
-                    <div className="text-xs sm:text-base">
-                      <span className="font-semibold text-slate-900 dark:text-white mr-1.5">
+                  {/* Impact Box */}
+                  <div className="p-4 border border-black/10 dark:border-white/10 flex items-start gap-3">
+                    <LuCircleCheck className="text-black dark:text-white size-4 shrink-0 mt-0.5" />
+                    <div className="text-[12px]">
+                      <span className="font-bold uppercase tracking-wider mr-2">
                         {content.labels.impact}:
                       </span>
-                      <span className="text-slate-600 dark:text-slate-300">
+                      <span className="text-black/70 dark:text-white/70">
                         {item.impact}
                       </span>
                     </div>
@@ -176,38 +174,37 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Footer: Tech Stack & Action Links */}
-              <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                <div className="pt-5 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Footer: Tech Stack & Action */}
+              <div className="p-6 sm:p-8 pt-0">
+                <div className="pt-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <div className="flex flex-wrap gap-1.5">
                     {item.tech.map((techName, idx) => (
                       <span
                         key={idx}
-                        className="px-2.5 py-1 rounded-md bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-[11px] font-sans text-slate-600 dark:text-slate-400"
+                        className="px-2.5 py-1 border border-black/10 dark:border-white/10 text-[9px] font-mono uppercase tracking-widest"
                       >
                         {techName}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 shrink-0">
+                  <div className="flex flex-wrap items-center gap-6 shrink-0">
                     <Link
                       href={`/projects#${item.slug}`}
-                      className="inline-flex items-center gap-1 text-xs sm:text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-black/60 dark:hover:text-white/60 transition-colors"
                     >
                       <span>{content.labels.viewDetail}</span>
-                      <LuArrowRight className="size-3.5" />
+                      <LuArrowRight className="size-3" />
                     </Link>
-
                     {item.liveUrl && (
                       <a
                         href={item.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs sm:text-base font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                        className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest hover:text-black/60 dark:hover:text-white/60 transition-colors"
                       >
                         <span>{content.labels.viewDemo}</span>
-                        <LuArrowUpRight className="size-4" />
+                        <LuArrowUpRight className="size-3" />
                       </a>
                     )}
                   </div>
@@ -217,17 +214,17 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Bottom CTA ke Halaman /projects */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="font-sans text-base sm:text-base font-medium text-slate-700 dark:text-slate-200">
+        {/* Bottom CTA */}
+        <div className="mt-16 p-8 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <p className="text-[13px] font-medium text-black/70 dark:text-white/70 max-w-xl">
             {content.bottomCta.note}
           </p>
           <Link
             href={content.bottomCta.href}
-            className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-base font-semibold px-5 py-3 rounded-xl shadow-sm transition-colors shrink-0"
+            className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white border border-black dark:border-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest transition-colors shrink-0 rounded-none"
           >
             <span>{content.bottomCta.label}</span>
-            <LuArrowRight className="size-4" />
+            <LuArrowRight className="size-3" />
           </Link>
         </div>
       </div>

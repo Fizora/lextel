@@ -10,65 +10,67 @@ export default function TermsPage() {
   const content = termsContentByLang[lang];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-28 pb-24 transition-colors">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white dark:bg-[#050505] text-black dark:text-white pt-32 pb-24 transition-colors">
+      <div className="mx-auto max-w-3xl px-6 md:px-10">
         {/* Navigation Back */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 transition-colors mb-10"
+          className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors mb-12"
         >
-          <LuChevronLeft className="size-4" />
+          <LuChevronLeft className="size-3" />
           <span>{lang === "id" ? "Kembali ke Beranda" : "Back to Home"}</span>
         </Link>
 
         {/* Header */}
-        <div className="mb-12 border-b border-slate-200 dark:border-slate-800 pb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider mb-6">
-            <LuFileText className="size-4" />
+        <div className="mb-16 border-b border-black/10 dark:border-white/10 pb-10">
+          <div className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-8">
+            <LuFileText className="size-3" />
             <span>{content.badge}</span>
           </div>
-          <h1 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6">
             {content.title}
           </h1>
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+          <p className="text-[10px] font-mono tracking-widest text-black/40 dark:text-white/40 uppercase">
             {content.lastUpdated}
           </p>
         </div>
 
         {/* Content */}
-        <div className="space-y-10">
-          <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed font-medium bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <div className="space-y-12">
+          <p className="text-[13px] leading-relaxed font-medium bg-black/2 dark:bg-white/2 p-6 border border-black/10 dark:border-white/10">
             {content.intro}
           </p>
 
-          <div className="space-y-8">
+          <div className="space-y-10">
             {content.sections.map((section) => (
-              <div key={section.id} className="space-y-3">
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+              <div key={section.id} className="space-y-4">
+                <h2 className="text-lg font-bold uppercase tracking-wider border-b border-black/10 dark:border-white/10 pb-2">
                   {section.title}
                 </h2>
-                {section.content.map((paragraph, idx) => (
-                  <p
-                    key={idx}
-                    className="text-sm lg:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
+                <div className="space-y-4">
+                  {section.content.map((paragraph, idx) => (
+                    <p
+                      key={idx}
+                      className="text-[13px] leading-relaxed text-black/60 dark:text-white/60"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
 
           {/* Contact Box */}
-          <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-sm font-medium text-slate-800 dark:text-slate-200">
+          <div className="mt-16 p-8 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <p className="text-[12px] font-medium text-black/70 dark:text-white/70">
               {content.contactText}
             </p>
             <a
               href={`mailto:${content.contactCta}`}
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-colors shrink-0 shadow-sm"
+              className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-5 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-black/80 dark:hover:bg-white/80 transition-colors shrink-0 rounded-none"
             >
-              <LuMail className="size-4" />
+              <LuMail className="size-3" />
               <span>{content.contactCta}</span>
             </a>
           </div>

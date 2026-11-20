@@ -22,11 +22,21 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("lextel-theme") as Theme | null;
-    if (savedTheme === "dark") {
-      setTheme("dark");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
+    // Gunakan savedTheme jika ada; jika tidak ada, ikuti tema OS
+    const initialTheme: Theme = savedTheme
+      ? savedTheme
+      : systemPrefersDark
+        ? "dark"
+        : "light";
+
+    setTheme(initialTheme);
+    if (initialTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
-      setTheme("light");
       document.documentElement.classList.remove("dark");
     }
   }, []);

@@ -29,49 +29,48 @@ export default function NotFound() {
   const t = content[lang] || content.en;
 
   return (
-    <main className="min-h-[80vh] flex items-center justify-center bg-slate-50 dark:bg-slate-950 px-4 py-20 transition-colors duration-200">
-      <div className="max-w-2xl w-full text-center space-y-8">
-        {/* Graphic / Visual */}
-        <div className="relative flex justify-center items-center">
-          {/* Glow Effect */}
-          <div className="absolute inset-0 bg-red-600/10 dark:bg-red-500/20 blur-3xl rounded-full scale-150" />
-
-          <div className="relative flex flex-col items-center justify-center p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl w-48 h-48 sm:w-56 sm:h-56">
-            <LuTerminal className="size-12 text-red-600 dark:text-red-500 mb-2" />
-            <span className="font-sans text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tighter">
+    <main className="min-h-screen flex items-center justify-center bg-white dark:bg-[#050505] text-black dark:text-white px-6 py-24 transition-colors duration-200">
+      <div className="max-w-2xl w-full text-left border border-black/10 dark:border-white/10 p-10 md:p-16">
+        {/* Graphic */}
+        <div className="mb-12 border-b border-black/10 dark:border-white/10 pb-12 flex items-end justify-between">
+          <div className="size-24 border border-black dark:border-white flex flex-col items-center justify-center">
+            <LuTerminal className="size-6 mb-1" />
+            <span className="font-mono text-xs font-bold tracking-widest">
               404
             </span>
+          </div>
+          <div className="text-right">
+            <div className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-black/60 dark:text-white/60">
+              <LuTriangleAlert className="size-3" />
+              <span>{t.tag}</span>
+            </div>
           </div>
         </div>
 
         {/* Text Content */}
-        <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 text-xs font-semibold uppercase tracking-wider">
-            <LuTriangleAlert className="size-3.5" />
-            <span>{t.tag}</span>
-          </div>
-          <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <div className="space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter leading-[0.95]">
             {t.title}
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-[14px] text-black/60 dark:text-white/60 leading-relaxed max-w-md">
             {t.description}
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+        <div className="flex flex-col sm:flex-row gap-4 pt-12 mt-12 border-t border-black/10 dark:border-white/10">
           <Link
             href="/"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-red-600/20 transition-all cursor-pointer"
+            className="flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white border border-black dark:border-white px-6 py-4 text-[11px] font-bold uppercase tracking-widest transition-colors rounded-none"
           >
             <LuHouse className="size-4" />
             <span>{t.backHome}</span>
           </Link>
           <a
             href="mailto:business@lexentify.com"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-semibold px-6 py-3 rounded-xl transition-all cursor-pointer"
+            className="flex items-center justify-center gap-2 border border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white px-6 py-4 text-[11px] font-bold uppercase tracking-widest transition-colors rounded-none"
           >
-            <LuMail className="size-4 text-red-600 dark:text-red-400" />
+            <LuMail className="size-4" />
             <span>{t.contact}</span>
           </a>
         </div>

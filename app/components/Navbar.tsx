@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   LuMenu,
   LuX,
@@ -66,43 +65,40 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`w-full fixed top-0 left-0 z-50 transition-transform duration-300 ${
+        className={`w-full fixed top-0 left-0 z-50 transition-transform duration-500 ease-[0.16,1,0.3,1] ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {/* Top Banner */}
-        <div className="bg-red-950 text-red-100 text-[11px] sm:text-xs py-1.5 px-3 border-b border-red-900">
-          <div className="mx-auto max-w-7xl flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
-            <div className="flex items-center gap-4 shrink-0">
-              <span className="hidden md:flex items-center gap-1.5">
-                <LuClock className="text-red-400 shrink-0" />
+        {/* Top Banner - Minimalist Contact Info */}
+        <div className="bg-[#f5f5f5] dark:bg-[#0a0a0a] text-[#050505] dark:text-white text-[10px] uppercase tracking-widest font-medium border-b border-black/10 dark:border-white/10">
+          <div className="mx-auto max-w-360 px-6 md:px-10 h-8 flex items-center justify-between overflow-x-auto no-scrollbar">
+            <div className="flex items-center gap-6 shrink-0">
+              <span className="hidden md:flex items-center gap-2 text-black/60 dark:text-white/60">
+                <LuClock className="size-3" />
                 {contactInfo.operationalHours[lang]}
               </span>
             </div>
-            <div className="flex items-center gap-4 shrink-0 ml-auto">
+            <div className="flex items-center gap-6 shrink-0 ml-auto">
               <a
                 href={`mailto:${contactInfo.email}`}
-                className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors"
+                className="hidden sm:flex items-center gap-2 hover:text-black dark:hover:text-white transition-colors"
               >
-                <LuMail className="text-red-400 shrink-0" />
+                <LuMail className="size-3 text-black/40 dark:text-white/40" />
                 {contactInfo.email}
               </a>
-
-              {/* PERBAIKAN: Menambahkan Nomor HP Kedua */}
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-4">
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="flex items-center gap-1.5 hover:text-white transition-colors font-medium whitespace-nowrap"
+                  className="flex items-center gap-2 hover:text-black dark:hover:text-white transition-colors"
                 >
-                  <LuPhone className="text-red-400 shrink-0" />
+                  <LuPhone className="size-3 text-black/40 dark:text-white/40" />
                   {contactInfo.phone}
                 </a>
-                <span className="text-red-800 hidden sm:inline">|</span>
+                <span className="text-black/20 dark:text-white/20">/</span>
                 <a
                   href={`tel:${contactInfo.phoneTwo}`}
-                  className="flex items-center gap-1.5 hover:text-white transition-colors font-medium whitespace-nowrap"
+                  className="flex items-center gap-2 hover:text-black dark:hover:text-white transition-colors"
                 >
-                  <LuPhone className="text-red-400 shrink-0" />
                   {contactInfo.phoneTwo}
                 </a>
               </div>
@@ -111,102 +107,98 @@ const Navbar = () => {
         </div>
 
         {/* Main Navbar */}
-        <div className="bg-red-700 dark:bg-red-900 text-white shadow-md transition-colors duration-200">
-          <div className="py-3 mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 flex items-center justify-between">
-            {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center gap-2 focus:outline-none"
-            >
-              {/* <Image
-                src="/img/logo/lextel.svg"
-                alt="logo"
-                width={34}
-                height={34}
-                className="sm:w-10 sm:h-10"
-              /> */}
-              <span className="font-mono text-2xl font-bold tracking-wider text-white">
+        <div className="bg-white/90 dark:bg-[#050505]/90 backdrop-blur-md text-[#050505] dark:text-white border-b border-black/10 dark:border-white/10 transition-colors duration-300">
+          <div className="mx-auto max-w-360 px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
+            {/* Logo - Strict & Geometric */}
+            <Link href="/" className="flex items-center focus:outline-none">
+              <span className="font-sans text-xl font-bold uppercase tracking-[0.2em]">
                 LEXTEL
               </span>
             </Link>
+
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 font-sans text-sm font-medium">
+            <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  className="px-3.5 py-2 rounded-lg hover:bg-red-600 dark:hover:bg-red-800 transition-colors"
+                  className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-            {/* Right Group: Theme Toggle + Language Switcher + Menu Button */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5">
-              {/* Tombol Dark / Light Mode */}
+
+            {/* Right Group: Theme, Lang, Mobile Toggle */}
+            <div className="flex items-center gap-2 md:gap-4">
+              {/* Theme Toggle - Sharp Square */}
               <button
                 type="button"
                 onClick={toggleTheme}
-                className="p-2 bg-red-800/80 hover:bg-red-600 dark:bg-red-950/70 dark:hover:bg-red-800 text-white rounded-lg border border-red-600/75 dark:border-red-700/75 transition-colors cursor-pointer"
+                className="flex items-center justify-center size-9 md:size-10 border border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white transition-colors text-black dark:text-white cursor-pointer"
                 aria-label="Toggle Dark Mode"
               >
                 {theme === "light" ? (
-                  <LuMoon className="text-sm sm:text-base" />
+                  <LuMoon className="size-4" />
                 ) : (
-                  <LuSun className="text-sm sm:text-base text-amber-300" />
+                  <LuSun className="size-4" />
                 )}
               </button>
 
-              {/* Language Switcher */}
+              {/* Language Switcher - Minimal Dropdown */}
               <div className="relative" ref={dropdownRef}>
                 <button
                   type="button"
                   onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                  className="inline-flex items-center gap-1 bg-red-800/80 hover:bg-red-600 dark:bg-red-950/70 dark:hover:bg-red-800 text-white text-xs sm:text-sm font-semibold px-2.5 py-2 rounded-lg border border-red-600/75 dark:border-red-700/75 transition-colors cursor-pointer"
+                  className="flex items-center gap-2 h-9 md:h-10 px-3 border border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white transition-colors text-[10px] font-bold uppercase tracking-widest cursor-pointer"
                   aria-label="Select Language"
                 >
-                  <LuGlobe className="text-red-200 text-sm shrink-0" />
+                  <LuGlobe className="size-3.5 text-black/60 dark:text-white/60" />
                   <span>{currentLangObj?.label}</span>
                   <LuChevronDown
-                    className={`text-xs transition-transform duration-200 ${
+                    className={`size-3 transition-transform duration-300 ${
                       langDropdownOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {langDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-36 bg-white dark:bg-slate-900 text-gray-800 dark:text-slate-100 rounded-xl shadow-xl border border-gray-200 dark:border-slate-700 py-1 z-50">
-                    {languagesList.map((item) => (
-                      <button
-                        key={item.code}
-                        type="button"
-                        onClick={() => {
-                          setLang(item.code);
-                          setLangDropdownOpen(false);
-                        }}
-                        className={`w-full px-3 py-2 text-left text-xs sm:text-sm flex items-center justify-between hover:bg-red-50 dark:hover:bg-slate-800 transition-colors cursor-pointer ${
-                          lang === item.code
-                            ? "font-bold text-red-600 dark:text-red-400 bg-red-50/50 dark:bg-slate-800/60"
-                            : "font-medium text-gray-700 dark:text-slate-300"
-                        }`}
-                      >
-                        <span>{item.name}</span>
-                        {lang === item.code && (
-                          <LuCheck className="text-red-600 dark:text-red-400 text-sm" />
-                        )}
-                      </button>
-                    ))}
+                  <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-[#050505] border border-black/10 dark:border-white/10 shadow-xl z-50">
+                    <div className="p-1">
+                      {languagesList.map((item) => (
+                        <button
+                          key={item.code}
+                          type="button"
+                          onClick={() => {
+                            setLang(item.code);
+                            setLangDropdownOpen(false);
+                          }}
+                          className={`w-full px-3 py-2.5 text-left text-[11px] font-bold uppercase tracking-widest flex items-center justify-between transition-colors cursor-pointer ${
+                            lang === item.code
+                              ? "bg-black/5 dark:bg-white/10 text-black dark:text-white"
+                              : "text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white"
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          {lang === item.code && <LuCheck className="size-3" />}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
 
-              {/* Mobile Menu Button - Hanya tampil di bawah lg */}
+              {/* Mobile Menu Toggle - Sharp Square */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 text-xl sm:text-2xl focus:outline-none bg-red-800/80 hover:bg-red-600 dark:bg-red-950/70 dark:hover:bg-red-800 rounded-lg border border-red-600/75 transition-colors cursor-pointer"
+                className="lg:hidden flex items-center justify-center size-9 md:size-10 border border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white transition-colors cursor-pointer"
                 aria-label="Toggle Menu"
               >
-                {isOpen ? <LuX /> : <LuMenu />}
+                {isOpen ? (
+                  <LuX className="size-5" />
+                ) : (
+                  <LuMenu className="size-5" />
+                )}
               </button>
             </div>
           </div>
@@ -214,48 +206,42 @@ const Navbar = () => {
       </header>
 
       {/* Backdrop */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-xs z-60 transition-opacity"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Drawer Sidebar untuk Mobile */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 sm:w-80 bg-red-800 dark:bg-red-950 text-white shadow-2xl z-70 flex flex-col justify-between p-6 transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-60 transition-opacity duration-300 ${
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* Mobile Drawer - Typography Focused */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full sm:w-80 bg-white dark:bg-[#050505] text-black dark:text-white shadow-2xl z-70 flex flex-col justify-between transition-transform duration-500 ease-[0.16,1,0.3,1] border-l border-black/10 dark:border-white/10 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div>
-          <div className="flex items-center justify-between pb-5 border-b border-red-700 dark:border-red-800">
-            <div className="flex items-center gap-2">
-              {/* <Image
-                src="/img/logo/lextel.svg"
-                alt="logo"
-                width={30}
-                height={30}
-              /> */}
-              <span className="font-mono text-2xl font-bold tracking-wider text-white">
-                LEXTEL
-              </span>
-            </div>
+          <div className="flex items-center justify-between p-6 border-b border-black/10 dark:border-white/10">
+            <span className="font-sans text-xl font-bold uppercase tracking-[0.2em]">
+              LEXTEL
+            </span>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1.5 text-xl hover:bg-red-700 dark:hover:bg-red-900 rounded-lg transition-colors cursor-pointer"
+              className="p-2 -mr-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
               aria-label="Close Menu"
             >
-              <LuX />
+              <LuX className="size-5" />
             </button>
           </div>
 
-          <nav className="flex flex-col gap-1.5 mt-6 font-sans">
+          <nav className="flex flex-col p-6 gap-6">
             {navLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-base font-medium py-2.5 px-3 rounded-xl hover:bg-red-700/80 dark:hover:bg-red-900 transition-colors"
+                className="text-2xl font-bold uppercase tracking-tight hover:text-black/50 dark:hover:text-white/50 transition-colors"
               >
                 {link.label}
               </Link>
@@ -263,10 +249,11 @@ const Navbar = () => {
           </nav>
         </div>
 
-        <div className="pt-6 border-t border-red-700 dark:border-red-800">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-red-200 mb-3">
-            <LuGlobe className="text-sm" />
-            <span>Language / Bahasa</span>
+        {/* Mobile Footer - Language Grid */}
+        <div className="p-6 border-t border-black/10 dark:border-white/10 bg-[#fafafa] dark:bg-[#0a0a0a]">
+          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-black/40 dark:text-white/40 mb-4">
+            <LuGlobe className="size-3.5" />
+            <span>Language</span>
           </div>
           <div className="grid grid-cols-2 gap-2">
             {languagesList.map((item) => (
@@ -277,10 +264,10 @@ const Navbar = () => {
                   setLang(item.code);
                   setIsOpen(false);
                 }}
-                className={`py-2 px-3 rounded-xl text-xs font-semibold text-center transition-colors cursor-pointer ${
+                className={`py-3 px-2 border text-[11px] font-bold uppercase tracking-widest text-center transition-colors cursor-pointer ${
                   lang === item.code
-                    ? "bg-white text-red-800 shadow-xs"
-                    : "bg-red-900/60 text-red-100 hover:bg-red-700"
+                    ? "border-black dark:border-white bg-black dark:bg-white text-white dark:text-black"
+                    : "border-black/10 dark:border-white/10 text-black/60 dark:text-white/60 hover:border-black/30 dark:hover:border-white/30"
                 }`}
               >
                 {item.name}

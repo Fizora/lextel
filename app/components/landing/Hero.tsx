@@ -361,7 +361,6 @@ function DonutChart({
   const total = data.reduce((s, d) => s + d.value, 0);
   const radius = (size - thickness) / 2;
   const circ = 2 * Math.PI * radius;
-  let offset = 0;
 
   return (
     <div className="flex items-center gap-6 flex-wrap">
@@ -383,8 +382,13 @@ function DonutChart({
           {data.map((d, i) => {
             const len = (d.value / total) * circ;
             const dasharray = `${len} ${circ - len}`;
+
+            const offset = data
+              .slice(0, i)
+              .reduce((acc, item) => acc + (item.value / total) * circ, 0);
+
             const dashoffset = -offset;
-            offset += len;
+
             return (
               <circle
                 key={i}

@@ -1,4 +1,10 @@
 import { LangCode } from "@/app/context/LangaugeContext";
+import {
+  LuCpu,
+  LuLayoutTemplate,
+  LuWrench,
+  LuSmartphone,
+} from "react-icons/lu";
 
 export interface ServiceItem {
   id: string;
@@ -25,144 +31,152 @@ export interface ServicesContent {
 
 export const servicesContentByLang: Record<LangCode, ServicesContent> = {
   en: {
-    badge: "What We Build",
-    titleMain: "Operational systems tailored to",
-    titleHighlight: "your real workflow.",
+    badge: "Lextel Comprehensive Services",
+    titleMain: "Software Solutions for",
+    titleHighlight: "Real-World Operations.",
     description:
-      "No bloated off-the-shelf templates. Every system is engineered from scratch around how your team actually operates.",
+      "We do not just build passive visual websites. We engineer operational systems, high-performance web applications, and digital infrastructure built directly to optimize your business workflows.",
     items: [
       {
         id: "ops-system",
         tag: "01 / CORE SYSTEM",
         title: "Custom Operational Systems",
         description:
-          "End-to-end internal platforms for schools, Islamic boarding schools, agencies, and businesses—replacing scattered spreadsheets and manual approvals.",
+          "Many institutions and businesses are still stuck with fragmented workflows, juggling spreadsheets, group chats, and paper forms. We bring everything together into a single unified system, keeping all your data centralized with clear ownership at every stage. We start by mapping out your current workflow, then build a system tailored to what you truly need.",
         deliverables: [
-          "Role-based access & multi-level approvals",
-          "Automated billing, attendance & scheduling",
-          "Real-time audit logs & executive dashboards",
+          "Automation of internal approval workflows & bureaucracy",
+          "Real-time inventory management, databases, and data summaries",
+          "Daily operational performance analytics dashboards",
+          "Multi-level permission controls (Admin, Client, Staff, Management)",
         ],
         ctaLabel: "Discuss Your System",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        href: "mailto:business@lexentify.com",
       },
       {
         id: "web-app",
         tag: "02 / WEB & SAAS",
-        title: "High-Performance Web Applications",
+        title: "Web Applications & SaaS",
         description:
-          "Fast, reliable web applications built with modern architecture so your staff and clients can work smoothly from any device.",
+          "Have a software-as-a-service (SaaS) product idea or customer portal platform? We help you execute from database architecture and high-speed reactive frontend development to international payment gateway integrations.",
         deliverables: [
-          "Responsive interface for desktop & mobile",
-          "API integrations & automated notifications",
-          "Scalable database & cloud deployment",
+          "Modern frontend architecture with Next.js & Tailwind CSS",
+          "Payment gateway integration (Midtrans, Stripe, PayPal, etc.)",
+          "High-performance optimization (Core Web Vitals & SEO-ready)",
+          "Advanced data security & end-to-end encryption",
         ],
         ctaLabel: "Consult Web App",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        href: "mailto:business@lexentify.com",
       },
       {
-        id: "company-profile",
-        tag: "03 / DIGITAL PRESENCE",
-        title: "High-Converting Institutional Websites",
+        id: "mobile-app",
+        tag: "03 / MOBILE APPS",
+        title: "Mobile Apps",
         description:
-          "Clean, authoritative websites designed to build immediate trust, clarify your offerings, and turn visitors into qualified inquiries.",
+          "For people who work in the field or mostly use their phones: teachers, parents, couriers, sales teams, customers. The mobile app connects to the same backend as your web system, so the data stays consistent on both.",
         deliverables: [
-          "Bilingual (EN / ID) content architecture",
-          "SEO-ready & sub-second page load",
-          "Direct lead capture & WhatsApp routing",
+          "Push notifications for approvals, reminders, and announcements",
+          "Camera, QR scanning, GPS, and file upload",
+          "Offline mode that syncs once the connection returns",
+          "Publishing to Google Play",
         ],
-        ctaLabel: "Build Your Website",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        ctaLabel: "Consult Mobile App",
+        href: "mailto:business@lexentify.com",
       },
       {
         id: "maintenance",
         tag: "04 / LONG-TERM CARE",
-        title: "System Maintenance & Iteration",
+        title: "System Maintenance",
         description:
-          "Software should evolve as your institution grows. We provide ongoing monitoring, security updates, and feature iterations directly with the builders.",
+          "Software requires ongoing monitoring, security patching, and regular optimization. Through our monthly maintenance packages, you never have to worry about downtime, security vulnerabilities, or sluggish server performance.",
         deliverables: [
-          "24/7 uptime & automated backup checks",
-          "Priority bug fixes & security patches",
-          "Monthly feature improvements",
+          "Automated 24/7 server uptime monitoring",
+          "Secure automated regular data backups",
+          "Security patch updates and library dependency upkeep",
+          "Dedicated development hour allocations for new features",
         ],
         ctaLabel: "See Care Plans",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        href: "mailto:business@lexentify.com",
       },
     ],
     bottomNote: "Have a specific workflow problem that doesn't fit a box?",
     bottomCta: {
-      label: "Talk Directly With Us",
-      href: "mailto:business@lexentify.com", // <-- Diubah
+      label: "Discuss Your Requirements",
+      href: "mailto:business@lexentify.com",
     },
   },
   id: {
-    badge: "Layanan Kami",
-    titleMain: "Sistem operasional yang dirancang sesuai",
-    titleHighlight: "alur kerja nyata Anda.",
+    badge: "Layanan Komprehensif Lextel",
+    titleMain: "Solusi Perangkat Lunak untuk",
+    titleHighlight: "Operasional Nyata.",
     description:
-      "Bukan template kaku yang memaksa Anda beradaptasi. Setiap sistem dibangun dari nol mengikuti cara tim dan institusi Anda bekerja.",
+      "Kami tidak sekadar membuat website visual yang pasif. Kami merekayasa sistem operasional, aplikasi web berperforma tinggi, dan infrastruktur digital yang dirancang langsung untuk mengoptimalkan alur kerja bisnis Anda.",
     items: [
       {
         id: "ops-system",
         tag: "01 / SISTEM INTI",
         title: "Sistem Operasional Kustom",
         description:
-          "Platform internal terpadu untuk sekolah, pesantren, instansi, dan perusahaan—menggantikan tumpukan spreadsheet dan persetujuan manual.",
+          "Banyak instansi dan perusahaan masih terjebak dalam alur kerja yang terpecah, mulai dari spreadsheet, grup chat, hingga formulir kertas. Kami menyatukannya ke dalam satu sistem terpadu agar seluruh data terpusat dan setiap tahapan kerja memiliki penanggung jawab yang jelas. Prosesnya kami mulai dengan memetakan alur kerja Anda saat ini, lalu membangun sistem yang benar-benar sesuai kebutuhan.",
         deliverables: [
-          "Hak akses berbasis peran & persetujuan berjenjang",
-          "Otomatisasi administrasi, presensi & jadwal",
-          "Log aktivitas real-time & dashboard pimpinan",
+          "Otomatisasi alur persetujuan & birokrasi internal",
+          "Manajemen inventaris, database, dan rekap data real-time",
+          "Dashboard analitik performa operasional harian",
+          "Hak akses multi-level (Admin, Klien, Staf, Manajemen)",
         ],
         ctaLabel: "Diskusikan Sistem Anda",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        href: "mailto:business@lexentify.com",
       },
       {
         id: "web-app",
         tag: "02 / WEB & SAAS",
-        title: "Aplikasi Web Berperforma Tinggi",
+        title: "Aplikasi Web & SaaS",
         description:
-          "Aplikasi web cepat dan stabil dengan arsitektur modern agar staf maupun pengguna dapat bekerja lancar dari perangkat apa pun.",
+          "Punya ide produk software-as-a-service (SaaS) atau platform portal pelanggan? Kami membantu Anda mengeksekusi dari tahap arsitektur database, pengembangan frontend reaktif berkecepatan tinggi, hingga integrasi sistem pembayaran internasional.",
         deliverables: [
-          "Antarmuka responsif untuk desktop & ponsel",
-          "Integrasi API & notifikasi otomatis",
-          "Database terukur & deployment cloud aman",
+          "Arsitektur frontend modern dengan Next.js & Tailwind CSS",
+          "Integrasi payment gateway (Midtrans, Stripe, PayPal, dll)",
+          "Optimasi performa tinggi (Core Web Vitals & SEO-ready)",
+          "Keamanan data tingkat lanjut & enkripsi end-to-end",
         ],
         ctaLabel: "Konsultasi Aplikasi",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        href: "mailto:business@lexentify.com",
       },
       {
-        id: "company-profile",
-        tag: "03 / IDENTITAS DIGITAL",
-        title: "Website Institusi & Konversi Tinggi",
+        id: "mobile-app",
+        tag: "03 / APLIKASI MOBILE",
+        title: "Mobile Apps",
         description:
-          "Website bersih dan berwibawa yang dirancang membangun kepercayaan sejak detik pertama serta mengubah pengunjung menjadi calon klien.",
+          "Untuk mereka yang bekerja di lapangan atau lebih sering memakai ponsel: guru, wali murid, kurir, tim sales, pelanggan. Aplikasi mobile terhubung ke backend yang sama dengan sistem web Anda, jadi datanya selalu sama di keduanya.",
         deliverables: [
-          "Arsitektur konten dwibahasa (ID / EN)",
-          "Struktur ramah SEO & waktu muat super cepat",
-          "Formulir prospek & integrasi langsung ke WhatsApp",
+          "Notifikasi push untuk persetujuan, pengingat, dan pengumuman",
+          "Kamera, scan QR, GPS, dan unggah file",
+          "Mode offline yang tersinkron saat koneksi kembali",
+          "Rilis ke Google Play",
         ],
-        ctaLabel: "Buat Website Anda",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        ctaLabel: "Konsultasi Aplikasi Mobile",
+        href: "mailto:business@lexentify.com",
       },
       {
         id: "maintenance",
         tag: "04 / PENDAMPINGAN",
-        title: "Pemeliharaan & Pengembangan Berkelanjutan",
+        title: "Pemeliharaan Sistem",
         description:
-          "Perangkat lunak harus ikut tumbuh bersama institusi Anda. Kami menangani pemantauan, keamanan, dan penambahan fitur langsung bersama tim pembuatnya.",
+          "Perangkat lunak membutuhkan pemantauan, pembaruan keamanan, dan optimasi berkala. Melalui paket pemeliharaan bulanan kami, Anda tidak perlu cemas tentang downtime, kerentanan keamanan, atau lambatnya performa server.",
         deliverables: [
-          "Pemantauan server & cadangan data otomatis",
-          "Perbaikan cepat & pembaruan keamanan berkala",
-          "Penyesuaian fitur seiring perkembangan alur kerja",
+          "Monitoring uptime server otomatis 24 jam sehari",
+          "Pencadangan (backup) data berkala yang aman",
+          "Pembaruan patch keamanan dan dependensi pustaka",
+          "Alokasi jam pengembangan prioritas untuk fitur baru",
         ],
         ctaLabel: "Lihat Paket Dukungan",
-        href: "mailto:business@lexentify.com", // <-- Diubah
+        href: "mailto:business@lexentify.com",
       },
     ],
     bottomNote:
       "Punya kebutuhan alur kerja spesifik yang belum tercantum di atas?",
     bottomCta: {
-      label: "Ceritakan Langsung ke Kami",
-      href: "mailto:business@lexentify.com", // <-- Diubah
+      label: "Diskusikan Kebutuhan Anda",
+      href: "mailto:business@lexentify.com",
     },
   },
 };

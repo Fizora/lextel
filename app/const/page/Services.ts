@@ -1,5 +1,9 @@
-import { LangCode } from "@/app/context/LangaugeContext";
-import { LuCpu, LuLayoutTemplate, LuBuilding2, LuWrench } from "react-icons/lu";
+import {
+  LuCpu,
+  LuLayoutTemplate,
+  LuWrench,
+  LuSmartphone,
+} from "react-icons/lu";
 
 export const servicesContentByLang = {
   id: {
@@ -11,13 +15,13 @@ export const servicesContentByLang = {
     ctaSecondary: "Lihat Portofolio",
     services: [
       {
-        id: "ops-system", // <-- Disesuaikan dengan Footer
+        id: "ops-system",
         icon: LuCpu,
-        title: "Sistem Operasional Kustom", // <-- Disesuaikan dengan Footer
+        title: "Sistem Operasional Kustom",
         tagline:
           "Mengganti spreadsheet manual & birokrasi rumit dengan sistem terpadu.",
         description:
-          "Setiap bisnis memiliki standar operasional yang unik. Memaksa bisnis Anda beradaptasi dengan perangkat lunak 'one-size-fits-all' justru memperlambat pertumbuhan. Kami membangun sistem operasional kustom yang memetakan persis alur kerja harian tim Anda.",
+          "Banyak instansi dan perusahaan masih terjebak dalam alur kerja yang terpecah, mulai dari spreadsheet, grup chat, hingga formulir kertas. Kami menyatukannya ke dalam satu sistem terpadu agar seluruh data terpusat dan setiap tahapan kerja memiliki penanggung jawab yang jelas. Prosesnya kami mulai dengan memetakan alur kerja Anda saat ini, lalu membangun sistem yang benar-benar sesuai kebutuhan.",
         features: [
           "Otomatisasi alur persetujuan & birokrasi internal",
           "Manajemen inventaris, database, dan rekap data real-time",
@@ -29,9 +33,9 @@ export const servicesContentByLang = {
           "Cocok untuk: Perusahaan distribusi, lembaga pendidikan, yayasan/pesantren, dan pabrik.",
       },
       {
-        id: "web-app", // <-- Disesuaikan dengan Footer
+        id: "web-app",
         icon: LuLayoutTemplate,
-        title: "Aplikasi Web & SaaS", // <-- Disesuaikan dengan Footer
+        title: "Aplikasi Web & SaaS",
         tagline:
           "Membangun produk digital berskala tinggi yang cepat dan siap diluncurkan.",
         description:
@@ -53,26 +57,35 @@ export const servicesContentByLang = {
           "Cocok untuk: Startup teknologi, founder produk digital, dan agensi berkembang.",
       },
       {
-        id: "company-profile", // <-- Disesuaikan dengan Footer
-        icon: LuBuilding2,
-        title: "Website Institusi", // <-- Disesuaikan dengan Footer
-        tagline: "Membangun kredibilitas digital yang kokoh dan berwibawa.",
+        id: "mobile-app",
+        icon: LuSmartphone,
+        tagline:
+          "Membangun aplikasi mobile Android yang terintegrasi, responsif, dan siap mendukung kebutuhan operasional bisnis Anda.",
+        title: "Mobile Apps",
         description:
-          "Website institusi harus mencerminkan profesionalisme mutlak. Kami merancang situs web korporat, instansi, dan penyedia jasa profesional yang cepat, mudah dikelola, elegan, dan dirancang untuk mengonversi pengunjung menjadi klien nyata.",
+          "Untuk mereka yang bekerja di lapangan atau lebih sering memakai ponsel: guru, wali murid, kurir, tim sales, pelanggan. Aplikasi mobile terhubung ke backend yang sama dengan sistem web Anda, jadi datanya selalu sama di keduanya.",
         features: [
-          "Desain UI/UX eksklusif, bersih, dan berorientasi konversi",
-          "Sistem Manajemen Konten (CMS) yang mudah digunakan mandiri",
-          "Optimasi kecepatan muat halaman di bawah 1 detik",
-          "Struktur SEO teknis mendalam untuk dominasi mesin pencari",
+          "Notifikasi push untuk persetujuan, pengingat, dan pengumuman",
+          "Kamera, scan QR, GPS, dan unggah file",
+          "Mode offline yang tersinkron saat koneksi kembali",
+          "Rilis ke Google Play",
         ],
-        tech: ["Next.js", "Headless CMS", "Vercel Cloud", "Tailwind CSS"],
+        tech: [
+          "Flutter",
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Firebase Cloud Messaging",
+          "REST API",
+        ],
         target:
-          "Cocok untuk: Firma hukum, lembaga pendidikan, kontraktor, dan perusahaan jasa B2B.",
+          "Cocok untuk: presensi, laporan lapangan, aplikasi wali murid atau pelanggan, dan apa pun yang perlu ada di saku pengguna.",
       },
+
       {
-        id: "maintenance", // <-- Disesuaikan dengan Footer
+        id: "maintenance",
         icon: LuWrench,
-        title: "Pemeliharaan Sistem", // <-- Disesuaikan dengan Footer
+        title: "Pemeliharaan Sistem",
         tagline:
           "Memastikan infrastruktur digital Anda aman, stabil, dan selalu aktif 24/7.",
         description:
@@ -123,13 +136,13 @@ export const servicesContentByLang = {
     ctaSecondary: "View Portfolio",
     services: [
       {
-        id: "ops-system", // <-- Disesuaikan dengan Footer
+        id: "ops-system",
         icon: LuCpu,
-        title: "Custom Operational Systems", // <-- Disesuaikan dengan Footer
+        title: "Custom Operational Systems",
         tagline:
           "Replacing manual spreadsheets & complex bureaucracy with unified systems.",
         description:
-          "Every business has unique operational standards. Forcing your business to adapt to 'one-size-fits-all' software slows down growth. We build custom operational systems mapped precisely to your team's daily workflows.",
+          "Many institutions and businesses are still stuck with fragmented workflows, juggling spreadsheets, group chats, and paper forms. We bring everything together into a single unified system, keeping all your data centralized with clear ownership at every stage. We start by mapping out your current workflow, then build a system tailored to what you truly need.",
         features: [
           "Automation of internal approval workflows & bureaucracy",
           "Real-time inventory management, databases, and data summaries",
@@ -141,9 +154,9 @@ export const servicesContentByLang = {
           "Ideal for: Distribution companies, educational institutions, foundations, and manufacturing plants.",
       },
       {
-        id: "web-app", // <-- Disesuaikan dengan Footer
+        id: "web-app",
         icon: LuLayoutTemplate,
-        title: "Web Applications & SaaS", // <-- Disesuaikan dengan Footer
+        title: "Web Applications & SaaS",
         tagline:
           "Building high-scale digital products that are fast and ready to launch.",
         description:
@@ -165,27 +178,34 @@ export const servicesContentByLang = {
           "Ideal for: Tech startups, digital product founders, and scaling agencies.",
       },
       {
-        id: "company-profile", // <-- Disesuaikan dengan Footer
-        icon: LuBuilding2,
-        title: "Institutional Websites", // <-- Disesuaikan dengan Footer
+        id: "mobile-app",
+        icon: LuSmartphone,
         tagline:
-          "Establishing a rock-solid, authoritative digital credibility.",
+          "Building integrated, responsive Android mobile applications ready to support your business operational needs.",
+        title: "Mobile Apps",
         description:
-          "Institutional websites must project absolute professionalism. We design corporate sites, government bodies, and professional service providers that are fast, easy to manage, elegant, and engineered to convert visitors into real clients.",
+          "For people who work in the field or mostly use their phones: teachers, parents, couriers, sales teams, customers. The mobile app connects to the same backend as your web system, so the data stays consistent on both.",
         features: [
-          "Exclusive, clean, and conversion-oriented UI/UX design",
-          "Intuitive Content Management System (CMS) for independent updates",
-          "Page load speed optimization under 1 second",
-          "In-depth technical SEO architecture for search engine dominance",
+          "Push notifications for approvals, reminders, and announcements",
+          "Camera, QR scanning, GPS, and file upload",
+          "Offline mode that syncs once the connection returns",
+          "Publishing to Google Play",
         ],
-        tech: ["Next.js", "Headless CMS", "Vercel Cloud", "Tailwind CSS"],
+        tech: [
+          "Flutter",
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Firebase Cloud Messaging",
+          "REST API",
+        ],
         target:
-          "Ideal for: Law firms, educational institutions, contractors, and B2B service providers.",
+          "Best for: attendance, field reporting, parent or customer apps, and anything people need in their pocket.",
       },
       {
-        id: "maintenance", // <-- Disesuaikan dengan Footer
+        id: "maintenance",
         icon: LuWrench,
-        title: "System Maintenance", // <-- Disesuaikan dengan Footer
+        title: "System Maintenance",
         tagline:
           "Ensuring your digital infrastructure remains secure, stable, and active 24/7.",
         description:

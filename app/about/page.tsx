@@ -1,9 +1,33 @@
 "use client";
 
-import Link from "next/link";
 import { useLanguage } from "@/app/context/LangaugeContext";
 import { aboutContentByLang } from "@/app/const/page/About";
 import { LuArrowRight, LuBuilding } from "react-icons/lu";
+
+const LEXENTIFY_URL = "https://lexentify.com";
+
+function LinkifyBrand({ text }: { text: string }) {
+  const parts = text.split(/(Lexentify)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part === "Lexentify" ? (
+          <a
+            key={i}
+            href={LEXENTIFY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-black dark:text-white underline underline-offset-4 decoration-black/30 dark:decoration-white/30 hover:decoration-black dark:hover:decoration-white transition-colors"
+          >
+            {part}
+          </a>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
+  );
+}
 
 export default function AboutPage() {
   const { lang } = useLanguage();
@@ -27,7 +51,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-[14px] leading-relaxed text-black/60 dark:text-white/60 max-w-2xl">
-            {t.subtitle}
+            <LinkifyBrand text={t.subtitle} />
           </p>
         </div>
 
@@ -42,7 +66,7 @@ export default function AboutPage() {
                 {stat.label}
               </div>
               <p className="text-[11px] text-black/50 dark:text-white/50">
-                {stat.sublabel}
+                <LinkifyBrand text={stat.sublabel} />
               </p>
             </div>
           ))}
@@ -55,7 +79,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
               <span className="text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 block mb-4">
-                LEXTEL BY LEXENTIFY
+                SISTER STUDIO OF LEXENTIFY
               </span>
               <h2 className="text-3xl font-bold uppercase tracking-tight leading-tight">
                 {t.storyTitle}
@@ -63,7 +87,9 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-8 space-y-6 text-[14px] leading-relaxed text-black/70 dark:text-white/70">
               {t.storyParagraphs.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
+                <p key={idx}>
+                  <LinkifyBrand text={paragraph} />
+                </p>
               ))}
             </div>
           </div>
@@ -81,7 +107,7 @@ export default function AboutPage() {
             {t.principlesTitle}
           </h2>
           <p className="text-[14px] leading-relaxed text-black/60 dark:text-white/60">
-            {t.principlesSubtitle}
+            <LinkifyBrand text={t.principlesSubtitle} />
           </p>
         </div>
 
@@ -100,7 +126,7 @@ export default function AboutPage() {
                   {item.title}
                 </h3>
                 <p className="text-[13px] leading-relaxed text-black/60 dark:text-white/60">
-                  {item.description}
+                  <LinkifyBrand text={item.description} />
                 </p>
               </div>
             );
@@ -108,32 +134,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Bottom CTA Card */}
-      <section className="mx-auto max-w-360 px-6 md:px-10">
-        <div className="border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black p-10 md:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
-          <div className="max-w-2xl space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter">
-              {t.ctaTitle}
-            </h2>
-            <p className="text-[14px] text-white/60 dark:text-black/60 leading-relaxed">
-              {t.ctaDescription}
-            </p>
+      {/* Sister Studio */}
+      <section className="mx-auto max-w-360 px-6 md:px-10 pb-24">
+        <div className="border border-black/10 dark:border-white/10">
+          <div className="p-8 md:p-12 border-b border-black/10 dark:border-white/10">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-6">
+                <span className="size-1.5 bg-black dark:bg-white" />
+                <span>{t.sisterStudio.badge}</span>
+              </div>
+              <h2 className="text-2xl md:text-4xl font-bold uppercase tracking-tight leading-[1.05] mb-4">
+                {t.sisterStudio.title}
+              </h2>
+              <p className="text-[14px] leading-relaxed text-black/60 dark:text-white/60">
+                <LinkifyBrand text={t.sisterStudio.description} />
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto shrink-0">
-            <Link
-              href={t.ctaPrimary.href}
-              className="inline-flex items-center justify-center gap-2 bg-white text-black dark:bg-black dark:text-white hover:bg-transparent hover:text-white dark:hover:bg-transparent dark:hover:text-black border border-white dark:border-black px-6 py-4 text-[11px] font-bold uppercase tracking-widest transition-colors rounded-none"
-            >
-              <span>{t.ctaPrimary.label}</span>
-              <LuArrowRight className="size-4" />
-            </Link>
-            <Link
-              href={t.ctaSecondary.href}
-              className="inline-flex items-center justify-center gap-2 border border-white/30 dark:border-black/30 text-white dark:text-black hover:bg-white/10 dark:hover:bg-black/5 px-6 py-4 text-[11px] font-bold uppercase tracking-widest transition-colors rounded-none"
-            >
-              <span>{t.ctaSecondary.label}</span>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black/10 dark:divide-white/10">
+            <div className="p-8 md:p-10">
+              <h3 className="text-lg font-bold uppercase tracking-wide mb-3">
+                {t.sisterStudio.lextelName}
+              </h3>
+              <p className="text-[13px] leading-relaxed text-black/60 dark:text-white/60">
+                <LinkifyBrand text={t.sisterStudio.lextelDesc} />
+              </p>
+              <p className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest">
+                <span className="size-1.5 bg-black dark:bg-white" />
+                {t.sisterStudio.lextelHere}
+              </p>
+            </div>
+            <div className="p-8 md:p-10 flex flex-col justify-between gap-6">
+              <div>
+                <h3 className="text-lg font-bold uppercase tracking-wide mb-3">
+                  {t.sisterStudio.lexentifyName}
+                </h3>
+                <p className="text-[13px] leading-relaxed text-black/60 dark:text-white/60">
+                  <LinkifyBrand text={t.sisterStudio.lexentifyDesc} />
+                </p>
+              </div>
+              <a
+                href={t.sisterStudio.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 self-start border border-black dark:border-white px-5 py-3 text-[11px] font-bold uppercase tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+              >
+                <span>{t.sisterStudio.cta.label}</span>
+                <LuArrowRight className="size-4" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

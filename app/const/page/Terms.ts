@@ -1,4 +1,4 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
 
 export interface LegalSection {
   id: string;
@@ -72,7 +72,7 @@ export const termsContentByLang: Record<LangCode, TermsContent> = {
     ],
     contactText:
       "If you have any questions regarding these Terms, please contact us at",
-    contactCta: "business@lexentify.com",
+    contactCta: "info@lexentify.com",
   },
   id: {
     badge: "Legal",
@@ -129,6 +129,6 @@ export const termsContentByLang: Record<LangCode, TermsContent> = {
     ],
     contactText:
       "Jika Anda memiliki pertanyaan mengenai Ketentuan ini, silakan hubungi kami",
-    contactCta: "business@lexentify.com",
+    contactCta: "info@lexentify.com",
   },
 };

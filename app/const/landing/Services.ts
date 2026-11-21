@@ -1,4 +1,4 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
 import {
   LuCpu,
   LuLayoutTemplate,
@@ -50,7 +50,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Multi-level permission controls (Admin, Client, Staff, Management)",
         ],
         ctaLabel: "Discuss Your System",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
       {
         id: "web-app",
@@ -65,7 +65,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Advanced data security & end-to-end encryption",
         ],
         ctaLabel: "Consult Web App",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
       {
         id: "mobile-app",
@@ -80,7 +80,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Publishing to Google Play",
         ],
         ctaLabel: "Consult Mobile App",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
       {
         id: "maintenance",
@@ -95,13 +95,13 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Dedicated development hour allocations for new features",
         ],
         ctaLabel: "See Care Plans",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
     ],
     bottomNote: "Have a specific workflow problem that doesn't fit a box?",
     bottomCta: {
       label: "Discuss Your Requirements",
-      href: "mailto:business@lexentify.com",
+      href: "mailto:info@lexentify.com",
     },
   },
   id: {
@@ -124,7 +124,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Hak akses multi-level (Admin, Klien, Staf, Manajemen)",
         ],
         ctaLabel: "Diskusikan Sistem Anda",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
       {
         id: "web-app",
@@ -139,7 +139,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Keamanan data tingkat lanjut & enkripsi end-to-end",
         ],
         ctaLabel: "Konsultasi Aplikasi",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
       {
         id: "mobile-app",
@@ -154,7 +154,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Rilis ke Google Play",
         ],
         ctaLabel: "Konsultasi Aplikasi Mobile",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
       {
         id: "maintenance",
@@ -169,14 +169,14 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
           "Alokasi jam pengembangan prioritas untuk fitur baru",
         ],
         ctaLabel: "Lihat Paket Dukungan",
-        href: "mailto:business@lexentify.com",
+        href: "mailto:info@lexentify.com",
       },
     ],
     bottomNote:
       "Punya kebutuhan alur kerja spesifik yang belum tercantum di atas?",
     bottomCta: {
       label: "Diskusikan Kebutuhan Anda",
-      href: "mailto:business@lexentify.com",
+      href: "mailto:info@lexentify.com",
     },
   },
 };

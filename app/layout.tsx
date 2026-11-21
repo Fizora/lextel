@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/app/context/LangaugeContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import CTA from "@/app/components/CTA";
 import "./globals.css";
 
 const geistSans = Inter({
@@ -39,6 +40,7 @@ export default function RootLayout({
           <LanguageProvider>
             <Navbar />
             <main className="flex-1 pt-24 sm:pt-28">{children}</main>
+            <CTA />
             <Footer />
           </LanguageProvider>
         </ThemeProvider>

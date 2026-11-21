@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LangaugeContext";
@@ -49,7 +49,7 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="mailto:business@lexentify.com"
+              href="mailto:info@lexentify.com"
               className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black hover:bg-transparent hover:text-black dark:hover:bg-transparent dark:hover:text-white border border-black dark:border-white px-6 py-4 text-[11px] font-bold uppercase tracking-widest transition-colors rounded-none"
             >
               <span>{t.ctaPrimary}</span>
@@ -136,7 +136,7 @@ export default function ServicesPage() {
 
                   <div className="pt-8">
                     <Link
-                      href="mailto:business@lexentify.com"
+                      href="mailto:info@lexentify.com"
                       className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest border-b border-black dark:border-white pb-1 hover:text-black/50 dark:hover:text-white/50 transition-colors"
                     >
                       <span>

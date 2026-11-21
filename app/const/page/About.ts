@@ -1,4 +1,4 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
 import { IconType } from "react-icons";
 import { LuTarget, LuZap, LuShieldCheck, LuCode } from "react-icons/lu";
 
@@ -15,6 +15,21 @@ export interface StatItem {
   sublabel: string;
 }
 
+export interface SisterStudioContent {
+  badge: string;
+  title: string;
+  description: string;
+  lextelName: string;
+  lextelDesc: string;
+  lextelHere: string;
+  lexentifyName: string;
+  lexentifyDesc: string;
+  cta: {
+    label: string;
+    href: string;
+  };
+}
+
 export interface AboutPageContent {
   badge: string;
   titleMain: string;
@@ -27,16 +42,7 @@ export interface AboutPageContent {
   principlesTitle: string;
   principlesSubtitle: string;
   principles: PrincipleItem[];
-  ctaTitle: string;
-  ctaDescription: string;
-  ctaPrimary: {
-    label: string;
-    href: string;
-  };
-  ctaSecondary: {
-    label: string;
-    href: string;
-  };
+  sisterStudio: SisterStudioContent;
 }
 
 export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
@@ -45,7 +51,7 @@ export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
     titleMain: "Membangun sistem yang",
     titleHighlight: "benar-benar dipakai.",
     subtitle:
-      "Lextel adalah sub-brand rekayasa sistem operasional dari Lexentify. Kami hadir untuk menjembatani kesenjangan antara perangkat lunak generik yang kaku dengan kebutuhan operasional nyata institusi dan perusahaan di Indonesia.",
+      "Lextel adalah studio saudara dari Lexentify. Kami hadir untuk menjembatani kesenjangan antara perangkat lunak generik yang kaku dengan kebutuhan operasional nyata institusi dan perusahaan di Indonesia.",
     storyTitle: "Mengapa Lextel Dibangun",
     storyParagraphs: [
       "Banyak institusi, sekolah, pesantren, maupun perusahaan berkembang terjebak di antara dua pilihan buruk: bertahan dengan tumpukan spreadsheet manual yang rawan kesalahan, atau membeli software siap pakai yang rumit dan memaksa tim mengubah cara kerja mereka.",
@@ -103,16 +109,22 @@ export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
           "Dibangun menggunakan teknologi web mutakhir (Next.js, TypeScript, dan cloud modern) agar siap menangani pertumbuhan data bertahun-tahun ke depan.",
       },
     ],
-    ctaTitle: "Siap merapikan operasional institusi Anda?",
-    ctaDescription:
-      "Ceritakan alur kerja yang ingin Anda otomatisasi. Kami akan membantu memetakan solusi sistem yang paling tepat dan masuk akal.",
-    ctaPrimary: {
-      label: "Mulai Diskusi",
-      href: "mailto:business@lexentify.com", // <-- Diubah
-    },
-    ctaSecondary: {
-      label: "Lihat Rincian Layanan",
-      href: "/services",
+    sisterStudio: {
+      badge: "Dua Studio, Satu Standar",
+      title: "Butuh website, atau sistem yang lebih dalam?",
+      description:
+        "Lextel adalah studio saudara dari Lexentify. Keduanya memegang standar dan prinsip rekayasa yang sama, tetapi melayani kebutuhan yang berbeda. Jika Lexentify membangun pintu depannya, Lextel membangun seluruh rumah di baliknya.",
+      lextelName: "Lextel",
+      lextelDesc:
+        "Sistem perangkat lunak custom: aplikasi web & mobile, ERP, internal tools, dan infrastruktur cloud.",
+      lextelHere: "Anda berada di tempat yang tepat.",
+      lexentifyName: "Lexentify",
+      lexentifyDesc:
+        "Website berkonversi tinggi untuk bisnis jasa rumah tangga seperti tukang ledeng, listrik, HVAC, dan atap.",
+      cta: {
+        label: "Hanya butuh website? Kunjungi Lexentify",
+        href: "https://lexentify.com",
+      },
     },
   },
   en: {
@@ -120,7 +132,7 @@ export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
     titleMain: "Engineering systems that",
     titleHighlight: "actually get used.",
     subtitle:
-      "Lextel is the operational systems engineering arm of Lexentify. We exist to bridge the gap between rigid off-the-shelf software and the real daily workflows of institutions and growing businesses.",
+      "Lextel is the sister studio of Lexentify. We exist to bridge the gap between rigid off-the-shelf software and the real daily workflows of institutions and growing businesses.",
     storyTitle: "Why Lextel Exists",
     storyParagraphs: [
       "Too many institutions, schools, and growing companies are stuck between two bad options: surviving on fragile manual spreadsheets, or buying bloated off-the-shelf software that forces their staff to change how they work.",
@@ -178,16 +190,22 @@ export const aboutContentByLang: Record<LangCode, AboutPageContent> = {
           "Engineered with proven modern web technologies (Next.js, TypeScript, and resilient cloud infrastructure) built to scale for years.",
       },
     ],
-    ctaTitle: "Ready to streamline your operations?",
-    ctaDescription:
-      "Tell us about the workflow you want to automate. We will help map out a clear, practical system tailored to your team.",
-    ctaPrimary: {
-      label: "Start a Conversation",
-      href: "mailto:business@lexentify.com", // <-- Diubah
-    },
-    ctaSecondary: {
-      label: "Explore Services",
-      href: "/services",
+    sisterStudio: {
+      badge: "Two Studios, One Standard",
+      title: "Need a website, or a system that goes deeper?",
+      description:
+        "Lextel is a sister studio of Lexentify. Both share the same engineering standards and principles, but serve different needs. If Lexentify builds the front door, Lextel builds the whole house behind it.",
+      lextelName: "Lextel",
+      lextelDesc:
+        "Custom software systems: web & mobile apps, ERP, internal tools, and cloud infrastructure.",
+      lextelHere: "You're in the right place.",
+      lexentifyName: "Lexentify",
+      lexentifyDesc:
+        "High-conversion websites for home-service businesses such as plumbers, electricians, HVAC providers, and roofers.",
+      cta: {
+        label: "Just need a website? Visit Lexentify",
+        href: "https://lexentify.com",
+      },
     },
   },
 };

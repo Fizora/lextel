@@ -1,4 +1,4 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
 
 export interface PrivacySection {
   id: string;
@@ -64,7 +64,7 @@ export const privacyContentByLang: Record<LangCode, PrivacyContent> = {
       },
     ],
     contactText: "For any privacy-related inquiries, please contact us at",
-    contactCta: "business@lexentify.com",
+    contactCta: "info@lexentify.com",
   },
   id: {
     badge: "Privasi",
@@ -113,6 +113,6 @@ export const privacyContentByLang: Record<LangCode, PrivacyContent> = {
       },
     ],
     contactText: "Untuk pertanyaan terkait privasi, silakan hubungi kami di",
-    contactCta: "business@lexentify.com",
+    contactCta: "info@lexentify.com",
   },
 };

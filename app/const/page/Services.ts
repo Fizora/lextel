@@ -61,7 +61,7 @@ export const servicesContentByLang = {
         icon: LuSmartphone,
         tagline:
           "Membangun aplikasi mobile Android yang terintegrasi, responsif, dan siap mendukung kebutuhan operasional bisnis Anda.",
-        title: "Mobile Apps",
+        title: "Aplikasi Mobile",
         description:
           "Untuk mereka yang bekerja di lapangan atau lebih sering memakai ponsel: guru, wali murid, kurir, tim sales, pelanggan. Aplikasi mobile terhubung ke backend yang sama dengan sistem web Anda, jadi datanya selalu sama di keduanya.",
         features: [
@@ -182,7 +182,7 @@ export const servicesContentByLang = {
         icon: LuSmartphone,
         tagline:
           "Building integrated, responsive Android mobile applications ready to support your business operational needs.",
-        title: "Mobile Apps",
+        title: "Aplikasi Mobile",
         description:
           "For people who work in the field or mostly use their phones: teachers, parents, couriers, sales teams, customers. The mobile app connects to the same backend as your web system, so the data stays consistent on both.",
         features: [

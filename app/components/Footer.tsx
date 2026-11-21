@@ -1,23 +1,103 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore, type ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LangaugeContext";
 import { contactInfo, landingContentByLang } from "@/app/const/data";
-import { LuMail, LuArrowRight } from "react-icons/lu";
+import { LuArrowRight } from "react-icons/lu";
+// import { useState } from "react";
+// import { LuMail } from "react-icons/lu";
+
+/* ───────────────────────── helpers ───────────────────────── */
+
+// true hanya di browser, supaya bahasa dari localStorage tidak
+// menyebabkan hydration mismatch (pengganti useState + useEffect)
+const subscribe = () => () => { };
+const useMounted = () =>
+  useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
+
+const tel = (n: string) => `tel:${n.replace(/[^\d+]/g, "")}`;
+
+const linkClass =
+  "text-black/60 transition-colors hover:text-black dark:text-white/60 dark:hover:text-white";
+
+const headingClass = "mb-6 text-[10px] font-bold uppercase tracking-widest";
+
+const mutedLabel =
+  "text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40";
+
+// mailto: dan tel: memakai <a>, selain itu memakai Link bawaan Next.js
+function FooterLink({
+  href,
+  className = linkClass,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  const native = href.startsWith("mailto:") || href.startsWith("tel:");
+  return native ? (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  ) : (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+  mono = false,
+}: {
+  title: string;
+  links: { label: string; href: string }[];
+  mono?: boolean;
+}) {
+  return (
+    <div>
+      <h3 className={headingClass}>{title}</h3>
+      <ul className={`space-y-3 text-[13px] ${mono ? "font-mono" : ""}`}>
+        {links.map((link) => (
+          <li key={`${link.href}-${link.label}`}>
+            <FooterLink href={link.href} className={`${linkClass} break-all`}>
+              {link.label}
+            </FooterLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/* ───────────────────────── footer ───────────────────────── */
 
 export default function Footer() {
   const { lang } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-  const [email, setEmail] = useState("");
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   const currentLang = mounted ? lang : "en";
   const content = landingContentByLang[currentLang].footer;
+
+  const contactLinks = [
+    { label: contactInfo.email, href: `mailto:${contactInfo.email}` },
+    { label: contactInfo.phone, href: tel(contactInfo.phone) },
+    { label: contactInfo.phoneTwo, href: tel(contactInfo.phoneTwo) },
+  ];
+
+  /* Form dinonaktifkan. Kalau mau dipakai lagi, hapus tanda komentar di
+     sini dan di blok JSX "Form" di bawah, lalu aktifkan lagi import
+     useState dan LuMail di atas.
+
+  const [email, setEmail] = useState("");
 
   const handleQuickContact = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,12 +107,13 @@ export default function Footer() {
     )}&body=${encodeURIComponent(`Halo tim Lextel, hubungi saya kembali di: ${email}`)}`;
     setEmail("");
   };
+  */
 
   return (
-    <footer className="relative overflow-hidden bg-white dark:bg-[#050505] border-t border-black/10 dark:border-white/10 text-black dark:text-white transition-colors duration-200">
-      <div className="mx-auto max-w-360 px-6 md:px-10 pt-20">
+    <footer className="relative overflow-hidden border-t border-black/10 bg-white text-black transition-colors duration-200 dark:border-white/10 dark:bg-[#050505] dark:text-white">
+      <div className="mx-auto max-w-360 px-6 pt-20 md:px-10">
         {/* 1. TOP SECTION */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 pb-16">
+        <div className="flex flex-col gap-12 pb-16 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-lg space-y-6">
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
@@ -48,7 +129,24 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Form */}
+          {/* Pengganti form: kartu kontak langsung (tanpa input) */}
+          <a
+            href={`mailto:${contactInfo.email}`}
+            className="group block w-full max-w-md border border-black/15 p-6 transition-colors hover:border-black dark:border-white/15 dark:hover:border-white"
+          >
+            <p className={mutedLabel}>{content.ctaTitle}</p>
+
+            <div className="mt-8 flex items-end justify-between gap-6">
+              <span className="break-all font-mono text-[14px] md:text-[15px]">
+                {contactInfo.email}
+              </span>
+              <span className="flex size-11.5 shrink-0 items-center justify-center bg-black text-white transition-colors group-hover:bg-black/80 dark:bg-white dark:text-black dark:group-hover:bg-white/80">
+                <LuArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </span>
+            </div>
+          </a>
+
+          {/* Form
           <div className="w-full max-w-md space-y-4">
             <p className="text-[11px] font-bold uppercase tracking-widest">
               {content.ctaTitle}
@@ -79,86 +177,24 @@ export default function Footer() {
               {content.ctaDisclaimer}
             </p>
           </div>
+          */}
         </div>
 
         {/* 2. MIDDLE SECTION */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-12 border-t border-black/10 dark:border-white/10">
-          {/* Kolom 1 */}
-          <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
-              {content.navTitle}
-            </h3>
-            <ul className="space-y-3 text-[13px]">
-              {content.quickLinks.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="grid grid-cols-1 gap-10 border-t border-black/10 py-12 sm:grid-cols-2 lg:grid-cols-4 dark:border-white/10">
+          <FooterColumn title={content.navTitle} links={content.quickLinks} />
+          <FooterColumn
+            title={content.servicesTitle}
+            links={content.serviceLinks}
+          />
+          <FooterColumn
+            title={content.contactTitle}
+            links={contactLinks}
+            mono
+          />
 
-          {/* Kolom 2 */}
           <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
-              {content.servicesTitle}
-            </h3>
-            <ul className="space-y-3 text-[13px]">
-              {content.serviceLinks.map((service, index) => (
-                <li key={index}>
-                  <Link
-                    href={service.href}
-                    className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Kolom 3 */}
-          <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
-              {content.contactTitle}
-            </h3>
-            <ul className="space-y-3 text-[13px] font-mono">
-              <li>
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors break-all"
-                >
-                  {contactInfo.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${contactInfo.phone}`}
-                  className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
-                >
-                  {contactInfo.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${contactInfo.phoneTwo}`}
-                  className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
-                >
-                  {contactInfo.phoneTwo}
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Kolom 4 */}
-          <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6">
-              {content.hoursTitle}
-            </h3>
+            <h3 className={headingClass}>{content.hoursTitle}</h3>
             <ul className="space-y-3 text-[13px] text-black/60 dark:text-white/60">
               <li>{contactInfo.operationalHours[currentLang]}</li>
               <li className="leading-relaxed">{content.license}</li>
@@ -167,18 +203,20 @@ export default function Footer() {
         </div>
 
         {/* 3. BOTTOM BAR */}
-        <div className="py-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40">
+        <div
+          className={`flex flex-col items-center justify-between gap-4 border-t border-black/10 py-6 sm:flex-row dark:border-white/10 ${mutedLabel}`}
+        >
           <p>{content.copyright}</p>
           <div className="flex flex-wrap items-center gap-6">
             <Link
               href={content.termsHref}
-              className="hover:text-black dark:hover:text-white transition-colors"
+              className="transition-colors hover:text-black dark:hover:text-white"
             >
               {content.termsLabel}
             </Link>
             <Link
               href={content.privacyHref}
-              className="hover:text-black dark:hover:text-white transition-colors"
+              className="transition-colors hover:text-black dark:hover:text-white"
             >
               {content.privacyLabel}
             </Link>
@@ -189,11 +227,11 @@ export default function Footer() {
       {/* 4. GIANT WATERMARK */}
       <div
         aria-hidden="true"
-        className="pointer-events-none select-none overflow-hidden mx-auto max-w-360 px-6 md:px-10 pt-4"
+        className="pointer-events-none mx-auto max-w-360 select-none overflow-hidden px-6 pt-4 md:px-10"
       >
         <svg
           viewBox="0 0 1000 175"
-          className="w-full h-auto block translate-y-[16%] text-black/3 dark:text-white/3"
+          className="block h-auto w-full translate-y-[16%] text-black/3 dark:text-white/3"
           fill="currentColor"
         >
           <text

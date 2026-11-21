@@ -1,8 +1,14 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
+
+export interface NavGroup {
+  title: string;
+  links: { label: string; href: string }[];
+}
 
 export interface NavItem {
   label: string;
   href: string;
+  groups?: NavGroup[];
 }
 
 export const languagesList: { code: LangCode; label: string; name: string }[] =
@@ -15,13 +21,72 @@ export const navLinksByLang: Record<LangCode, NavItem[]> = {
   en: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
+    {
+      label: "Services",
+      href: "/services",
+      groups: [
+        {
+          title: "Support",
+          links: [{ label: "Support", href: "/support" }],
+        },
+        {
+          title: "Services",
+          links: [
+            {
+              label: "Custom Operational Systems",
+              href: "/services#ops-system",
+            },
+            { label: "Web Applications & SaaS", href: "/services#web-app" },
+            {
+              label: "Mobile Apps",
+              href: "/services#mobile-app",
+            },
+            { label: "System Maintenance", href: "/services#maintenance" },
+          ],
+        },
+        {
+          title: "Legal",
+          links: [
+            { label: "Terms & Conditions", href: "/terms" },
+            { label: "Privacy Policy", href: "/privacy" },
+          ],
+        },
+      ],
+    },
     { label: "Projects", href: "/projects" },
   ],
   id: [
     { label: "Beranda", href: "/" },
     { label: "Tentang", href: "/about" },
-    { label: "Layanan", href: "/services" },
+    {
+      label: "Layanan",
+      href: "/services",
+      groups: [
+        {
+          title: "Dukungan",
+          links: [{ label: "Dukungan", href: "/support" }],
+        },
+        {
+          title: "Layanan",
+          links: [
+            {
+              label: "Sistem Operasional Kustom",
+              href: "/services#ops-system",
+            },
+            { label: "Aplikasi Web & SaaS", href: "/services#web-app" },
+            { label: "Aplikasi Mobile", href: "/services#mobile-app" },
+            { label: "Pemeliharaan Sistem", href: "/services#maintenance" },
+          ],
+        },
+        {
+          title: "Legal",
+          links: [
+            { label: "Syarat & Ketentuan", href: "/terms" },
+            { label: "Kebijakan Privasi", href: "/privacy" },
+          ],
+        },
+      ],
+    },
     { label: "Proyek", href: "/projects" },
   ],
 };
@@ -29,7 +94,7 @@ export const navLinksByLang: Record<LangCode, NavItem[]> = {
 export const contactInfo = {
   phone: "+62 821-3171-0601",
   phoneTwo: "+62 852-3508-6814",
-  email: "business@lexentify.com",
+  email: "info@lexentify.com",
   operationalHours: {
     en: "Mon - Fri: 09:00 AM - 05:00 PM",
     id: "Senin - Jum'at: 09:00 - 17:00 WIB",

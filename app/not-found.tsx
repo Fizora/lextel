@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useLanguage } from "@/app/context/LangaugeContext";
@@ -67,7 +67,7 @@ export default function NotFound() {
             <span>{t.backHome}</span>
           </Link>
           <a
-            href="mailto:business@lexentify.com"
+            href="mailto:info@lexentify.com"
             className="flex items-center justify-center gap-2 border border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white px-6 py-4 text-[11px] font-bold uppercase tracking-widest transition-colors rounded-none"
           >
             <LuMail className="size-4" />

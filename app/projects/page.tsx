@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -66,11 +66,10 @@ export default function ProjectsPage() {
                     key={filter.key}
                     type="button"
                     onClick={() => setActiveFilter(filter.key)}
-                    className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer border rounded-none ${
-                      isActive
+                    className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer border rounded-none ${isActive
                         ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
                         : "bg-transparent text-black/60 dark:text-white/60 border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white"
-                    }`}
+                      }`}
                   >
                     {filter.label}
                   </button>
@@ -189,7 +188,7 @@ export default function ProjectsPage() {
                       </a>
                     )}
                     <Link
-                      href="mailto:business@lexentify.com"
+                      href="mailto:info@lexentify.com"
                       className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-black/80 dark:hover:bg-white/80 transition-colors rounded-none"
                     >
                       <span>{content.labels.requestCaseStudy}</span>
@@ -200,33 +199,6 @@ export default function ProjectsPage() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      {/* Bottom Final CTA */}
-      <section className="py-24 border-t border-black/10 dark:border-white/10 bg-white dark:bg-[#050505]">
-        <div className="mx-auto max-w-360 px-6 md:px-10 text-center flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter mb-6 max-w-3xl">
-            {lang === "id"
-              ? "Punya Kebutuhan Sistem Operasional Khusus?"
-              : "Have a Custom Operational System Requirement?"}
-          </h2>
-          <p className="text-[14px] text-black/60 dark:text-white/60 mb-10 max-w-xl">
-            {lang === "id"
-              ? "Mari diskusikan hambatan alur kerja di perusahaan Anda. Kami rancang arsitektur perangkat lunak yang presisi dan cepat diterapkan."
-              : "Let's discuss your workflow bottlenecks. We engineer precise, fast-to-deploy software architectures."}
-          </p>
-          <Link
-            href="mailto:business@lexentify.com"
-            className="inline-flex items-center gap-3 bg-black dark:bg-white text-white dark:text-black px-8 py-4 text-[11px] font-bold uppercase tracking-widest hover:bg-black/80 dark:hover:bg-white/80 transition-colors rounded-none"
-          >
-            <span>
-              {lang === "id"
-                ? "Jadwalkan Konsultasi Sistem"
-                : "Schedule System Consultation"}
-            </span>
-            <LuArrowUpRight className="size-4" />
-          </Link>
         </div>
       </section>
     </main>

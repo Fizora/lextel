@@ -1,4 +1,4 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
 
 export interface CtaContent {
   label: string;
@@ -150,7 +150,7 @@ export const heroContentByLang: Record<LangCode, HeroContent> = {
       "We build operational software designed to match how your institution works—fast, clear, and directly with the builders.",
     primaryCta: {
       label: "Build Your System",
-      href: "mailto:business@lexentify.com",
+      href: "mailto:info@lexentify.com",
     },
     secondaryCta: { label: "Explore Services", href: "/#services" },
     dashboard: {
@@ -453,7 +453,7 @@ export const heroContentByLang: Record<LangCode, HeroContent> = {
       "Kami membangun perangkat lunak operasional yang dirancang sesuai cara institusi Anda bekerja—cepat, jelas, dan langsung bersama pembuatnya.",
     primaryCta: {
       label: "Ceritakan Kebutuhan Anda",
-      href: "mailto:business@lexentify.com",
+      href: "mailto:info@lexentify.com",
     },
     secondaryCta: { label: "Jelajahi Layanan", href: "/#services" },
     dashboard: {

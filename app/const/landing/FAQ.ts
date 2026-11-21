@@ -1,4 +1,4 @@
-import { LangCode } from "@/app/context/LangaugeContext";
+﻿import { LangCode } from "@/app/context/LangaugeContext";
 
 export interface FAQItem {
   id: string;
@@ -62,7 +62,7 @@ export const faqContentByLang: Record<LangCode, FAQContent> = {
       "Still have a specific question about your institution's workflow?",
     contactCta: {
       label: "Ask Us Directly",
-      href: "mailto:business@lexentify.com", // <-- Diubah
+      href: "mailto:info@lexentify.com", // <-- Diubah
     },
   },
   id: {
@@ -110,7 +110,7 @@ export const faqContentByLang: Record<LangCode, FAQContent> = {
       "Masih ada pertanyaan spesifik seputar kebutuhan alur kerja Anda?",
     contactCta: {
       label: "Tanyakan Langsung",
-      href: "mailto:business@lexentify.com", // <-- Diubah
+      href: "mailto:info@lexentify.com", // <-- Diubah
     },
   },
 };

@@ -14,19 +14,15 @@ export const languagesList: { code: LangCode; label: string; name: string }[] =
 export const navLinksByLang: Record<LangCode, NavItem[]> = {
   en: [
     { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
-    { label: "Portfolio", href: "/#portfolio" },
-    { label: "About", href: "/about" },
-    { label: "FAQ", href: "/#faq" },
   ],
   id: [
     { label: "Beranda", href: "/" },
+    { label: "Tentang", href: "/about" },
     { label: "Layanan", href: "/services" },
     { label: "Proyek", href: "/projects" },
-    { label: "Portofolio", href: "/#portfolio" },
-    { label: "Tentang", href: "/about" },
-    { label: "FAQ", href: "/#faq" },
   ],
 };
 
@@ -43,7 +39,7 @@ export const contactInfo = {
 const enContent = {
   footer: {
     description:
-      "Digital engineering studio building custom operational systems, high-performance web applications, and reliable software tailored to real workflows.",
+      "Digital engineering studio building custom operational systems, high-performance applications, and reliable software tailored to real workflows.",
     license: "Lextel by Lexentify • Engineered for Real Operations",
     ctaTitle: "Start a project or stay updated",
     ctaPlaceholder: "Enter your work email",
@@ -58,11 +54,9 @@ const enContent = {
     termsHref: "/terms",
     quickLinks: [
       { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
       { label: "Services", href: "/services" },
       { label: "Projects", href: "/projects" },
-      { label: "Portfolio", href: "/#portfolio" },
-      { label: "About Us", href: "/about" },
-      { label: "FAQ", href: "/#faq" },
     ],
     serviceLinks: [
       { label: "Custom Operational Systems", href: "/services#ops-system" },
@@ -81,7 +75,7 @@ export const landingContentByLang: Record<LangCode, LandingContentType> = {
   id: {
     footer: {
       description:
-        "Studio rekayasa digital yang membangun sistem operasional kustom, aplikasi web berperforma tinggi, dan perangkat lunak yang disesuaikan dengan alur kerja nyata.",
+        "Studio rekayasa digital yang membangun sistem operasional kustom, aplikasi berperforma tinggi, dan perangkat lunak yang disesuaikan dengan alur kerja nyata.",
       license: "Lextel oleh Lexentify • Dirancang untuk Operasional Nyata",
       ctaTitle: "Diskusikan kebutuhan sistem Anda",
       ctaPlaceholder: "Masukkan email institusi / kerja",
@@ -98,9 +92,7 @@ export const landingContentByLang: Record<LangCode, LandingContentType> = {
         { label: "Beranda", href: "/" },
         { label: "Layanan", href: "/services" },
         { label: "Proyek", href: "/projects" },
-        { label: "Portofolio", href: "/#portfolio" },
         { label: "Tentang Kami", href: "/about" },
-        { label: "FAQ", href: "/#faq" },
       ],
       serviceLinks: [
         { label: "Sistem Operasional Kustom", href: "/services#ops-system" },

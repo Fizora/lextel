@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/app/context/LangaugeContext";
 import {
   portfolioContentByLang,
   ProjectCategory,
 } from "@/app/const/landing/Portfolio";
+import ImageSlider from "@/app/components/ImageSlider";
 import {
   LuArrowUpRight,
   LuCircleCheck,
@@ -15,11 +15,18 @@ import {
   LuLayers,
   LuSlidersHorizontal,
 } from "react-icons/lu";
+import { FaGooglePlay } from "react-icons/fa";
 
 export default function ProjectsPage() {
   const { lang } = useLanguage();
   const content = portfolioContentByLang[lang];
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
+
+  // Sembunyikan filter yang tidak punya proyek
+  const visibleFilters = content.filters.filter(
+    (f) =>
+      f.key === "all" || content.items.some((item) => item.category === f.key),
+  );
 
   const filteredItems =
     activeFilter === "all"
@@ -59,17 +66,18 @@ export default function ProjectsPage() {
                 <LuSlidersHorizontal className="size-3" />
                 <span>Filter:</span>
               </div>
-              {content.filters.map((filter) => {
+              {visibleFilters.map((filter) => {
                 const isActive = activeFilter === filter.key;
                 return (
                   <button
                     key={filter.key}
                     type="button"
                     onClick={() => setActiveFilter(filter.key)}
-                    className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer border rounded-none ${isActive
+                    className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer border rounded-none ${
+                      isActive
                         ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white"
                         : "bg-transparent text-black/60 dark:text-white/60 border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white"
-                      }`}
+                    }`}
                   >
                     {filter.label}
                   </button>
@@ -89,32 +97,9 @@ export default function ProjectsPage() {
               id={item.slug}
               className="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-0 border border-black/10 dark:border-white/10 bg-white dark:bg-[#050505]"
             >
-              {/* Left Column: Preview Image */}
+              {/* Left Column: Slider Preview */}
               <div className="lg:col-span-6 border-b lg:border-b-0 lg:border-r border-black/10 dark:border-white/10">
-                <div className="px-4 py-3 border-b border-black/10 dark:border-white/10 flex items-center justify-between bg-black/2 dark:bg-white/2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
-                    <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
-                    <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
-                  </div>
-                  <span className="text-[9px] font-mono text-black/40 dark:text-white/40 truncate max-w-xs">
-                    {item.liveUrl
-                      ? item.liveUrl.replace("https://", "")
-                      : `lextel.app/${item.slug}`}
-                  </span>
-                  <span className="text-[9px] font-bold uppercase tracking-widest">
-                    Preview
-                  </span>
-                </div>
-                <div className="relative aspect-video w-full bg-black/5 dark:bg-white/5 overflow-hidden">
-                  <Image
-                    src={item.previewImage}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500 scale-100 hover:scale-105"
-                  />
-                </div>
+                <ImageSlider images={item.images} liveUrl={item.liveUrl} />
               </div>
 
               {/* Right Column: Detailed Breakdown */}
@@ -166,9 +151,9 @@ export default function ProjectsPage() {
 
                 <div className="pt-8 mt-8 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <div className="flex flex-wrap gap-2">
-                    {item.tech.map((techName, idx) => (
+                    {item.tech.map((techName) => (
                       <span
-                        key={idx}
+                        key={techName}
                         className="border border-black/10 dark:border-white/10 px-2 py-1 text-[9px] font-mono tracking-widest uppercase"
                       >
                         {techName}
@@ -185,6 +170,17 @@ export default function ProjectsPage() {
                       >
                         <span>{content.labels.viewDemo}</span>
                         <LuArrowUpRight className="size-3" />
+                      </a>
+                    )}
+                    {item.playStoreUrl && (
+                      <a
+                        href={item.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest transition-colors rounded-none"
+                      >
+                        <FaGooglePlay className="size-3" />
+                        <span>{content.labels.viewPlayStore}</span>
                       </a>
                     )}
                     <Link

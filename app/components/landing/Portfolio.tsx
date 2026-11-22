@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/app/context/LangaugeContext";
 import {
   portfolioContentByLang,
   ProjectCategory,
 } from "@/app/const/landing/Portfolio";
+import ImageSlider from "@/app/components/ImageSlider";
 import {
   LuArrowRight,
   LuArrowUpRight,
@@ -15,11 +15,18 @@ import {
   LuFolderGit2,
   LuLayers,
 } from "react-icons/lu";
+import { FaGooglePlay } from "react-icons/fa";
 
 export default function Portfolio() {
   const { lang } = useLanguage();
   const content = portfolioContentByLang[lang];
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
+
+  // Sembunyikan filter yang tidak punya proyek
+  const visibleFilters = content.filters.filter(
+    (f) =>
+      f.key === "all" || content.items.some((item) => item.category === f.key),
+  );
 
   const filteredItems =
     activeFilter === "all"
@@ -54,7 +61,7 @@ export default function Portfolio() {
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap items-center gap-2">
-            {content.filters.map((filter) => {
+            {visibleFilters.map((filter) => {
               const isActive = activeFilter === filter.key;
               return (
                 <button
@@ -82,39 +89,14 @@ export default function Portfolio() {
               className="group flex flex-col justify-between border border-black/10 dark:border-white/10 bg-transparent hover:border-black/30 dark:hover:border-white/30 transition-colors duration-200"
             >
               <div>
-                {/* Preview Image Frame */}
-                <Link
-                  href={`/projects#${item.slug}`}
-                  className="block border-b border-black/10 dark:border-white/10 overflow-hidden"
-                >
-                  {/* Browser Window Top Bar */}
-                  <div className="px-4 py-2.5 bg-black/5 dark:bg-white/5 border-b border-black/10 dark:border-white/10 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
-                      <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
-                      <span className="size-2 bg-black/20 dark:bg-white/20 rounded-none" />
-                    </div>
-                    <span className="text-[9px] font-mono text-black/40 dark:text-white/40 truncate max-w-48">
-                      {item.liveUrl
-                        ? item.liveUrl.replace("https://", "")
-                        : `lextel.app/${item.slug}`}
-                    </span>
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-black dark:text-white">
-                      PREVIEW
-                    </span>
-                  </div>
-
-                  {/* Screenshot Container */}
-                  <div className="relative aspect-video w-full bg-black/5 dark:bg-white/5 overflow-hidden">
-                    <Image
-                      src={item.previewImage}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
-                    />
-                  </div>
-                </Link>
+                {/* Preview: slider otomatis */}
+                <div className="border-b border-black/10 dark:border-white/10 overflow-hidden">
+                  <ImageSlider
+                    images={item.images}
+                    liveUrl={item.liveUrl}
+                    href={`/projects#${item.slug}`}
+                  />
+                </div>
 
                 {/* Card Content */}
                 <div className="p-6 sm:p-8">
@@ -178,9 +160,9 @@ export default function Portfolio() {
               <div className="p-6 sm:p-8 pt-0">
                 <div className="pt-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <div className="flex flex-wrap gap-1.5">
-                    {item.tech.map((techName, idx) => (
+                    {item.tech.map((techName) => (
                       <span
-                        key={idx}
+                        key={techName}
                         className="px-2.5 py-1 border border-black/10 dark:border-white/10 text-[9px] font-mono uppercase tracking-widest"
                       >
                         {techName}
@@ -205,6 +187,17 @@ export default function Portfolio() {
                       >
                         <span>{content.labels.viewDemo}</span>
                         <LuArrowUpRight className="size-3" />
+                      </a>
+                    )}
+                    {item.playStoreUrl && (
+                      <a
+                        href={item.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest transition-colors rounded-none"
+                      >
+                        <FaGooglePlay className="size-3" />
+                        <span>{content.labels.viewPlayStore}</span>
                       </a>
                     )}
                   </div>

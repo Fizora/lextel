@@ -4,7 +4,13 @@ export type ProjectCategory =
   | "all"
   | "operational"
   | "web-app"
+  | "mobile-app"
   | "institutional";
+
+export interface PortfolioImage {
+  src: string;
+  alt: string;
+}
 
 export interface PortfolioItem {
   id: string;
@@ -13,12 +19,15 @@ export interface PortfolioItem {
   categoryLabel: string;
   client: string;
   title: string;
-  previewImage: string;
+  /** Satu atau lebih screenshot. Gambar pertama jadi gambar utama. */
+  images: PortfolioImage[];
   problem: string;
   solution: string;
   impact: string;
   tech: string[];
   liveUrl?: string;
+  /** Link Google Play Store (opsional). Jika kosong, tombolnya tidak ditampilkan. */
+  playStoreUrl?: string;
 }
 
 export interface PortfolioContent {
@@ -35,6 +44,7 @@ export interface PortfolioContent {
     solution: string;
     impact: string;
     viewDemo: string;
+    viewPlayStore: string;
     viewDetail: string;
     requestCaseStudy: string;
   };
@@ -52,92 +62,163 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
     titleMain: "Sistem nyata yang sudah",
     titleHighlight: "bekerja di lapangan.",
     description:
-      "Beberapa contoh sistem operasional, aplikasi web, dan situs institusi yang kami rancang untuk memotong pekerjaan manual dan mempercepat pengambilan keputusan.",
+      "Beberapa contoh sistem yang kami rancang untuk dunia pendidikan: memangkas pekerjaan manual, mempercepat komunikasi, dan membuat setiap aspirasi tersampaikan dengan jelas.",
     filters: [
       { key: "all", label: "Semua Proyek" },
       { key: "operational", label: "Sistem Operasional" },
       { key: "web-app", label: "Aplikasi Web" },
+      { key: "mobile-app", label: "Aplikasi Mobile" },
       { key: "institutional", label: "Website Institusi" },
     ],
     labels: {
       problem: "Tantangan Awal",
       solution: "Solusi Rekayasa",
-      impact: "Dampak Terukur",
+      impact: "Dampak",
       viewDemo: "Pratinjau Live",
+      viewPlayStore: "Dapatkan Aplikasi",
       viewDetail: "Detail Sistem",
       requestCaseStudy: "Diskusikan Sistem Serupa",
     },
     bottomCta: {
-      note: "Ingin melihat arsitektur database, alur pengguna, dan tampilan lengkap setiap sistem?",
+      note: "Ingin melihat alur pengguna dan tampilan lengkap setiap sistem?",
       label: "Lihat Semua Proyek & Detail Sistem",
       href: "/projects",
     },
     items: [
       {
-        id: "pesantren-erp",
-        slug: "sistem-administrasi-keuangan-terpadu",
+        id: "aspirasi-siswa",
+        slug: "aspirasi-sistem-kritik-saran-sekolah",
         category: "operational",
         categoryLabel: "Sistem Operasional",
-        client: "Lembaga Pendidikan & Pesantren",
-        title: "Sistem Administrasi & Keuangan Terpadu",
-        previewImage: "/img/content/dashboard.jpg",
+        client: "SMKN 8 Malang",
+        title: "Aspirasi: Sistem Pengaduan, Kritik & Saran Sekolah",
+        images: [
+          {
+            src: "/img/content/aspirasi-1.jpeg",
+            alt: "Dashboard admin Aspirasi berisi ringkasan siswa, guru, dan pengaduan terbaru",
+          },
+          {
+            src: "/img/content/aspirasi-2.jpeg",
+            alt: "Form pengaduan siswa dengan pilihan jenis pengaduan, mata pelajaran, dan guru",
+          },
+          {
+            src: "/img/content/aspirasi-3.jpeg",
+            alt: "Halaman admin untuk memantau dan melihat detail pengaduan",
+          },
+        ],
         problem:
-          "Pencatatan tagihan bulanan, perizinan santri, dan laporan kas tersebar di belasan file spreadsheet terpisah sehingga rekapitulasi akhir bulan memakan waktu berhari-hari.",
+          "Kritik, saran, dan keluhan terhadap guru maupun wali kelas tidak punya jalur resmi. Aspirasi siswa dan orang tua sulit disampaikan, tidak terdokumentasi, dan tidak terpantau oleh pihak sekolah.",
         solution:
-          "Membangun platform terpusat dengan hak akses bertingkat (bendahara, pengurus asrama, pimpinan), notifikasi tagihan otomatis, dan log audit transaksi real-time.",
+          "Membangun platform pengaduan terpusat dengan tiga jenis laporan (Kritik & Saran, Pengaduan Guru, Pengaduan Wali Kelas), panel khusus siswa dan admin, riwayat status pengaduan, serta pengelolaan data siswa, guru, mapel, kelas, dan pengguna.",
         impact:
-          "Waktu rekapitulasi bulanan berkurang 85% dengan nol selisih pencatatan.",
-        tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+          "Semua aspirasi masuk ke satu tempat, tercatat rapi, dan dapat dipantau admin sekolah kapan saja.",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Prisma",
+          "PostgreSql",
+        ],
       },
       {
-        id: "service-booking-platform",
-        slug: "portal-penjadwalan-estimasi-layanan",
+        id: "parenting-chat",
+        slug: "parenting-komunikasi-wali-kelas-orang-tua",
         category: "web-app",
         categoryLabel: "Aplikasi Web",
-        client: "Perusahaan Jasa & Teknisi Lapangan",
-        title: "Portal Penjadwalan & Estimasi Layanan",
-        previewImage: "/img/content/wcaircon.png",
+        client: "Sekolah (Wali Kelas, Orang Tua & Siswa)",
+        title: "Parenting: Platform Komunikasi Wali Kelas & Orang Tua",
+        images: [
+          {
+            src: "/img/content/parenting-1.jpeg",
+            alt: "Halaman chat Parenting dengan percakapan dan lampiran dokumen PDF",
+          },
+          {
+            src: "/img/content/parenting-2.jpeg",
+            alt: "Dashboard wali kelas Parenting berisi thread terbaru dan statistik kelas",
+          },
+          {
+            src: "/img/content/parenting-3.jpg",
+            alt: "Tampilan responsif Parenting di ponsel dengan daftar percakapan wali kelas, orang tua, dan siswa",
+          },
+        ],
         problem:
-          "Calon pelanggan kesulitan mendapatkan estimasi biaya cepat dan tim admin kewalahan mengatur jadwal kunjungan teknisi melalui pesan chat manual.",
+          "Komunikasi wali kelas dengan orang tua dan siswa tersebar di grup chat pribadi. Informasi akademik, izin, dan perkembangan siswa mudah tenggelam dan tidak punya ruang koordinasi resmi.",
         solution:
-          "Merancang aplikasi web interaktif dengan kalkulator estimasi otomatis, pemetaan jadwal teknisi harian, dan konfirmasi instan ke sistem internal.",
+          "Membangun platform web berbasis percakapan seperti WhatsApp, dengan thread per topik, kirim berkas lampiran, dan dashboard wali kelas yang menampilkan thread aktif serta pesan belum dibaca.",
         impact:
-          "Peningkatan konversi permintaan layanan masuk hingga 2,4x lipat.",
-        tech: ["React", "Next.js", "TypeScript", "REST API"],
-        liveUrl: "https://wcaircon.lexentify.com",
+          "Informasi tersampaikan lebih jelas, cepat, dan terorganisir dalam satu ruang koordinasi resmi.",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Prisma",
+          "PostgreSql",
+        ],
       },
       {
-        id: "institutional-portal",
-        slug: "situs-korporat-pusat-dokumen-publik",
-        category: "institutional",
-        categoryLabel: "Website Institusi",
-        client: "Instansi & Penyedia Jasa B2B",
-        title: "Situs Korporat & Pusat Dokumen Publik",
-        previewImage: "/img/content/adpplumbing.png",
-        problem:
-          "Website lama lambat diakses dari ponsel, sulit diperbarui oleh staf non-teknis, dan gagal menampilkan kredibilitas institusi di hadapan mitra.",
-        solution:
-          "Membangun ulang arsitektur frontend berkecepatan tinggi (< 1 detik) dengan struktur konten dwibahasa, SEO teknis lengkap, dan panel pembaruan mandiri.",
-        impact:
-          "Skor performa halaman mencapai 99/100 dan lonjakan prospek B2B organik.",
-        tech: ["Next.js", "Tailwind CSS", "Vercel", "SEO Architecture"],
-        liveUrl: "https://adpplumbing.lexentify.com",
-      },
-      {
-        id: "inventory-approval",
-        slug: "sistem-pengadaan-persetujuan-berjenjang",
+        id: "parkir-management",
+        slug: "parkir-sistem-manajemen-transaksi-parkir",
         category: "operational",
         categoryLabel: "Sistem Operasional",
-        client: "Perusahaan Distribusi & Logistik",
-        title: "Sistem Pengadaan & Persetujuan Berjenjang",
-        previewImage: "/img/content/dashboard.jpg",
+        client: "Pengelola Area Parkir",
+        title: "Parkir: Sistem Manajemen & Transaksi Parkir",
+        images: [
+          {
+            src: "/img/content/parkir-1.png",
+            alt: "Halaman manajemen area parkir dengan daftar area dan kapasitas",
+          },
+          {
+            src: "/img/content/parkir-2.png",
+            alt: "Halaman manajemen kendaraan berisi plat nomor, jenis, warna, dan pemilik",
+          },
+          {
+            src: "/img/content/parkir-3.png",
+            alt: "Halaman transaksi parkir dengan struk parkir berisi durasi dan total biaya",
+          },
+          {
+            src: "/img/content/parkir-4.png",
+            alt: "Halaman manajemen tarif parkir per jam untuk setiap jenis kendaraan",
+          },
+        ],
         problem:
-          "Pengajuan pembelian barang dari cabang sering tertahan berhari-hari karena dokumen fisik harus ditandatangani manual di kantor pusat.",
+          "Pencatatan kendaraan masuk dan keluar, perhitungan biaya, serta pembagian area parkir dilakukan manual. Hasilnya rawan salah hitung, sulit dilacak, dan tidak ada jejak aktivitas petugas.",
         solution:
-          "Mengotomatiskan alur pengajuan, verifikasi anggaran, dan persetujuan digital satu klik lengkap dengan rekap stok gudang real-time.",
+          "Membangun sistem parkir terpusat dengan manajemen user berbasis peran, area parkir beserta kapasitas, tarif per jam untuk tiap jenis kendaraan, data kendaraan dan pemilik, transaksi masuk/keluar dengan biaya otomatis, cetak struk, dan log aktivitas pengguna.",
         impact:
-          "Siklus persetujuan pengadaan terpangkas dari 4 hari menjadi di bawah 3 jam.",
-        tech: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
+          "Biaya parkir dihitung otomatis dari durasi dan tarif, setiap transaksi punya struk, dan semua aktivitas petugas tercatat.",
+        tech: [
+          "Next.js",
+          "Javascript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Prisma",
+          "PostgreSql",
+        ],
+      },
+      {
+        id: "quran-prima",
+        slug: "quran-prima-aplikasi-al-quran-sekolah",
+        category: "mobile-app",
+        categoryLabel: "Aplikasi Mobile",
+        client: "SMK PGRI 5 Jember",
+        title: "Qur'an Prima: Aplikasi Al-Qur'an Mobile",
+        images: [
+          {
+            src: "/img/content/quran-prima-1.jpg",
+            alt: "Aplikasi Qur'an Prima dengan splash screen logo sekolah dan halaman Daftar Surah",
+          },
+        ],
+        problem:
+          "Siswa dan warga sekolah membutuhkan akses membaca Al-Qur'an yang praktis kapan saja, langsung dari ponsel, dengan identitas dan nuansa sekolah sendiri.",
+        solution:
+          "Membangun aplikasi mobile Qur'an Prima dengan daftar surah lengkap berisi nama latin dan Arab, jenis Makkiyah atau Madaniyah, serta jumlah ayat, dibalut branding SMK PGRI 5 Jember dan sudah dirilis di Google Play Store.",
+        impact:
+          "Al-Qur'an dapat diakses dari genggaman, dan aplikasi sudah tersedia untuk diunduh publik lewat Google Play Store.",
+        tech: ["Flutter", "Dart"],
+        playStoreUrl:
+          "https://play.google.com/store/apps/details?id=id.sch.smkpgri5.quranprima",
       },
     ],
   },
@@ -146,91 +227,163 @@ export const portfolioContentByLang: Record<LangCode, PortfolioContent> = {
     titleMain: "Real systems already",
     titleHighlight: "operating in the field.",
     description:
-      "Selected operational systems, web applications, and institutional websites engineered to eliminate manual bottlenecks and accelerate daily execution.",
+      "Selected systems built for education: cutting manual work, speeding up communication, and making sure every voice is heard clearly.",
     filters: [
       { key: "all", label: "All Projects" },
       { key: "operational", label: "Operational Systems" },
       { key: "web-app", label: "Web Applications" },
+      { key: "mobile-app", label: "Mobile Apps" },
       { key: "institutional", label: "Institutional Websites" },
     ],
     labels: {
       problem: "Initial Bottleneck",
       solution: "Engineered Solution",
-      impact: "Measured Impact",
+      impact: "Impact",
       viewDemo: "Live Preview",
+      viewPlayStore: "Get the App",
       viewDetail: "System Details",
       requestCaseStudy: "Build Similar System",
     },
     bottomCta: {
-      note: "Want to inspect the database architecture, user flows, and full system breakdown?",
+      note: "Want to inspect the user flows and full system breakdown?",
       label: "Explore All Projects & System Details",
       href: "/projects",
     },
     items: [
       {
-        id: "pesantren-erp",
-        slug: "sistem-administrasi-keuangan-terpadu",
+        id: "aspirasi-siswa",
+        slug: "aspirasi-sistem-kritik-saran-sekolah",
         category: "operational",
         categoryLabel: "Operational System",
-        client: "Educational & Boarding Institution",
-        title: "Unified Administration & Finance Platform",
-        previewImage: "/img/content/dashboard.jpg",
+        client: "SMKN 8 Malang",
+        title: "Aspirasi: School Complaint, Feedback & Suggestion System",
+        images: [
+          {
+            src: "/img/content/aspirasi-1.jpeg",
+            alt: "Aspirasi admin dashboard with student, teacher, and latest complaint summaries",
+          },
+          {
+            src: "/img/content/aspirasi-2.jpeg",
+            alt: "Student complaint form with complaint type, subject, and teacher selection",
+          },
+          {
+            src: "/img/content/aspirasi-3.jpeg",
+            alt: "Admin page for monitoring and viewing complaint details",
+          },
+        ],
         problem:
-          "Monthly billing, student leave approvals, and cash reports were scattered across dozens of spreadsheets, making end-of-month reconciliation take days.",
+          "Feedback and complaints about teachers and homeroom teachers had no official channel. Student and parent voices were hard to raise, undocumented, and invisible to school management.",
         solution:
-          "Built a centralized platform with role-based permissions (treasury, dormitory staff, leadership), automated billing alerts, and real-time transaction audit logs.",
+          "Built a centralized complaint platform with three report types (Feedback & Suggestions, Teacher Complaint, Homeroom Teacher Complaint), dedicated student and admin panels, complaint status history, and management of students, teachers, subjects, classes, and users.",
         impact:
-          "Monthly reconciliation time cut by 85% with zero ledger discrepancies.",
-        tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+          "Every submission lands in one place, is neatly recorded, and can be monitored by school admins at any time.",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Prisma",
+          "PostgreSql",
+        ],
       },
       {
-        id: "service-booking-platform",
-        slug: "portal-penjadwalan-estimasi-layanan",
+        id: "parenting-chat",
+        slug: "parenting-komunikasi-wali-kelas-orang-tua",
         category: "web-app",
         categoryLabel: "Web Application",
-        client: "Field Service & Technical Operations",
-        title: "Instant Dispatch & Quote Portal",
-        previewImage: "/img/content/wcaircon.png",
+        client: "School (Homeroom Teachers, Parents & Students)",
+        title: "Parenting: Homeroom Teacher & Parent Communication Platform",
+        images: [
+          {
+            src: "/img/content/parenting-1.jpeg",
+            alt: "Parenting chat page with a conversation and a PDF attachment",
+          },
+          {
+            src: "/img/content/parenting-2.jpeg",
+            alt: "Parenting homeroom teacher dashboard with latest threads and class stats",
+          },
+          {
+            src: "/img/content/parenting-4.jpg",
+            alt: "Responsive Parenting interface on a phone showing the chat list between homeroom teachers, parents, and students",
+          },
+        ],
         problem:
-          "Prospective clients struggled to get fast service quotes while dispatchers were overwhelmed coordinating field technicians manually over chat.",
+          "Communication between homeroom teachers, parents, and students was scattered across personal group chats. Academic updates, leave requests, and progress notes got buried with no official coordination space.",
         solution:
-          "Engineered an interactive web application with instant quote routing, technician dispatch scheduling, and automated inquiry capture.",
-        impact: "2.4x increase in qualified inbound service bookings.",
-        tech: ["React", "Next.js", "TypeScript", "REST API"],
-        liveUrl: "https://wcaircon.lexentify.com",
-      },
-      {
-        id: "institutional-portal",
-        slug: "situs-korporat-pusat-dokumen-publik",
-        category: "institutional",
-        categoryLabel: "Institutional Website",
-        client: "B2B Service & Institutional Provider",
-        title: "High-Authority Corporate & Public Portal",
-        previewImage: "/img/content/adpplumbing.png",
-        problem:
-          "The legacy site loaded slowly on mobile, required developer intervention for basic text edits, and failed to establish trust with enterprise partners.",
-        solution:
-          "Rebuilt the frontend architecture for sub-second load speeds with bilingual support, deep technical SEO, and an intuitive self-managed content workflow.",
+          "Built a WhatsApp-like web platform with topic-based threads, file attachments, and a homeroom teacher dashboard showing active threads and unread messages.",
         impact:
-          "99/100 performance score and sustained growth in organic B2B inquiries.",
-        tech: ["Next.js", "Tailwind CSS", "Vercel", "SEO Architecture"],
-        liveUrl: "https://adpplumbing.lexentify.com",
+          "Information reaches everyone more clearly, faster, and in an organized way, inside one official coordination space.",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Prisma",
+          "PostgreSql",
+        ],
       },
       {
-        id: "inventory-approval",
-        slug: "sistem-pengadaan-persetujuan-berjenjang",
+        id: "parkir-management",
+        slug: "parkir-sistem-manajemen-transaksi-parkir",
         category: "operational",
         categoryLabel: "Operational System",
-        client: "Distribution & Supply Chain Company",
-        title: "Multi-Level Procurement & Inventory System",
-        previewImage: "/img/content/dashboard.jpg",
+        client: "Parking Area Operator",
+        title: "Parkir: Parking Management & Transaction System",
+        images: [
+          {
+            src: "/img/content/parkir-1.png",
+            alt: "Parking area management page listing areas and their capacity",
+          },
+          {
+            src: "/img/content/parkir-2.png",
+            alt: "Vehicle management page with plate number, type, color, and owner",
+          },
+          {
+            src: "/img/content/parkir-3.png",
+            alt: "Parking transaction page with a receipt showing duration and total fee",
+          },
+          {
+            src: "/img/content/parkir-4.png",
+            alt: "Parking rate management page with hourly rates per vehicle type",
+          },
+        ],
         problem:
-          "Branch purchase requests stalled for days waiting for physical signatures and manual stock checks at headquarters.",
+          "Recording vehicle entries and exits, calculating fees, and assigning parking areas were done by hand. That meant calculation errors, poor traceability, and no audit trail of staff activity.",
         solution:
-          "Automated requisition routing, budget validation, and one-click digital approvals synced directly with real-time warehouse stock levels.",
+          "Built a centralized parking system with role-based user management, parking areas with capacity, hourly rates per vehicle type, vehicle and owner records, entry/exit transactions with automatic fees, receipt printing, and a user activity log.",
         impact:
-          "Procurement approval cycle reduced from 4 days to under 3 hours.",
-        tech: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
+          "Fees are calculated automatically from duration and rate, every transaction gets a receipt, and all staff activity is logged.",
+        tech: [
+          "Next.js",
+          "Javascript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Prisma",
+          "PostgreSql",
+        ],
+      },
+      {
+        id: "quran-prima",
+        slug: "quran-prima-aplikasi-al-quran-sekolah",
+        category: "mobile-app",
+        categoryLabel: "Mobile App",
+        client: "SMK PGRI 5 Jember",
+        title: "Qur'an Prima: Mobile Qur'an App",
+        images: [
+          {
+            src: "/img/content/quran-prima-1.jpg",
+            alt: "Qur'an Prima app showing the school-logo splash screen and the Surah list page",
+          },
+        ],
+        problem:
+          "Students and school members needed practical access to read the Qur'an anytime from their phones, with the school's own identity and look.",
+        solution:
+          "Built the Qur'an Prima mobile app with a full surah list showing Latin and Arabic names, Makkiyah or Madaniyah classification, and verse counts, wrapped in SMK PGRI 5 Jember branding and published on Google Play Store.",
+        impact:
+          "The Qur'an is accessible from the palm of the hand, and the app is publicly available for download on Google Play Store.",
+        tech: ["Flutter", "Dart"],
+        playStoreUrl:
+          "https://play.google.com/store/apps/details?id=id.sch.smkpgri5.quranprima",
       },
     ],
   },

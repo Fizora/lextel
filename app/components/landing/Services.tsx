@@ -6,16 +6,16 @@ import { servicesContentByLang } from "@/app/const/landing/Services";
 import {
   LuLayers,
   LuCode,
-  LuGlobe,
   LuShieldCheck,
   LuArrowUpRight,
   LuArrowRight,
+  LuSmartphone,
 } from "react-icons/lu";
 
 const iconMap: Record<string, React.ReactNode> = {
   "ops-system": <LuLayers className="size-5" />,
   "web-app": <LuCode className="size-5" />,
-  "company-profile": <LuGlobe className="size-5" />,
+  "mobile-app": <LuSmartphone className="size-5" />,
   maintenance: <LuShieldCheck className="size-5" />,
 };
 

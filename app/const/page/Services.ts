@@ -17,34 +17,34 @@ export const servicesContentByLang = {
       {
         id: "ops-system",
         icon: LuCpu,
-        title: "Sistem Operasional Kustom",
+        title: "Sistem ERP Kustom",
         tagline:
-          "Mengganti spreadsheet manual & birokrasi rumit dengan sistem terpadu.",
+          "Menyatukan proses bisnis inti ke dalam ERP yang dirancang sesuai alur kerja Anda.",
         description:
-          "Banyak instansi dan perusahaan masih terjebak dalam alur kerja yang terpecah, mulai dari spreadsheet, grup chat, hingga formulir kertas. Kami menyatukannya ke dalam satu sistem terpadu agar seluruh data terpusat dan setiap tahapan kerja memiliki penanggung jawab yang jelas. Prosesnya kami mulai dengan memetakan alur kerja Anda saat ini, lalu membangun sistem yang benar-benar sesuai kebutuhan.",
+          "Kami merancang dan membangun sistem ERP kustom untuk menghubungkan proses bisnis inti—seperti pembelian, persediaan, penjualan, keuangan, dan operasional—dalam satu sumber data. Setiap implementasi dimulai dengan pemetaan proses dan kebutuhan, sehingga modul, alur persetujuan, laporan, serta hak akses mengikuti cara kerja bisnis Anda, bukan memaksa bisnis mengikuti sistem generik.",
         features: [
-          "Otomatisasi alur persetujuan & birokrasi internal",
-          "Manajemen inventaris, database, dan rekap data real-time",
-          "Dashboard analitik performa operasional harian",
-          "Hak akses multi-level (Admin, Klien, Staf, Manajemen)",
+          "Modul ERP sesuai kebutuhan: persediaan, pembelian, penjualan, keuangan, atau SDM",
+          "Alur kerja dan persetujuan lintas divisi yang terintegrasi",
+          "Laporan serta dashboard operasional dari data terpusat",
+          "Hak akses berbasis peran dan jejak aktivitas pengguna",
         ],
         tech: ["Next.js", "TypeScript", "PostgreSQL", "NestJS", "Docker"],
         target:
-          "Cocok untuk: Perusahaan distribusi, lembaga pendidikan, yayasan/pesantren, dan pabrik.",
+          "Cocok untuk: Bisnis dengan proses lintas divisi yang kompleks, seperti distribusi, manufaktur, pendidikan, dan organisasi multi-unit.",
       },
       {
         id: "web-app",
         icon: LuLayoutTemplate,
-        title: "Aplikasi Web & SaaS",
+        title: "Aplikasi Web",
         tagline:
-          "Membangun produk digital berskala tinggi yang cepat dan siap diluncurkan.",
+          "Membangun aplikasi yang berjalan di browser untuk kebutuhan pelanggan maupun tim internal.",
         description:
-          "Punya ide produk software-as-a-service (SaaS) atau platform portal pelanggan? Kami membantu Anda mengeksekusi dari tahap arsitektur database, pengembangan frontend reaktif berkecepatan tinggi, hingga integrasi sistem pembayaran internasional.",
+          "Kami mengembangkan aplikasi web sesuai kebutuhan spesifik Anda—mulai dari portal pelanggan dan dashboard hingga aplikasi internal berbasis alur kerja. Kami menangani perancangan antarmuka, backend dan basis data, integrasi layanan yang dibutuhkan, serta penerapan agar aplikasi mudah digunakan melalui browser di berbagai perangkat.",
         features: [
-          "Arsitektur frontend modern dengan Next.js & Tailwind CSS",
-          "Integrasi payment gateway (Midtrans, Stripe, PayPal, dll)",
-          "Optimasi performa tinggi (Core Web Vitals & SEO-ready)",
-          "Keamanan data tingkat lanjut & enkripsi end-to-end",
+          "Portal pelanggan, dashboard, dan aplikasi internal berbasis browser",
+          "Antarmuka responsif untuk desktop, tablet, dan ponsel",
+          "Integrasi API, pembayaran, atau layanan pihak ketiga sesuai ruang lingkup",
+          "Pengujian, optimasi performa, dan deployment aplikasi",
         ],
         tech: [
           "React",
@@ -54,7 +54,7 @@ export const servicesContentByLang = {
           "REST/GraphQL API",
         ],
         target:
-          "Cocok untuk: Startup teknologi, founder produk digital, dan agensi berkembang.",
+          "Cocok untuk: Bisnis yang membutuhkan aplikasi web khusus untuk melayani pelanggan atau merapikan proses kerja internal.",
       },
       {
         id: "mobile-app",
@@ -91,7 +91,7 @@ export const servicesContentByLang = {
         description:
           "Perangkat lunak membutuhkan pemantauan, pembaruan keamanan, dan optimasi berkala. Melalui paket pemeliharaan bulanan kami, Anda tidak perlu cemas tentang *downtime*, kerentanan keamanan, atau lambatnya performa server.",
         features: [
-          "Monitoring uptime server otomatis 24 jam sehari",
+          "Monitoring uptime server otomatis 24/7",
           "Pencadangan (backup) data berkala yang aman",
           "Pembaruan patch keamanan dan dependensi pustaka",
           "Alokasi jam pengembangan prioritas untuk fitur baru",
@@ -138,34 +138,34 @@ export const servicesContentByLang = {
       {
         id: "ops-system",
         icon: LuCpu,
-        title: "Custom Operational Systems",
+        title: "Custom ERP Systems",
         tagline:
-          "Replacing manual spreadsheets & complex bureaucracy with unified systems.",
+          "Unifying core business processes in an ERP tailored to your workflows.",
         description:
-          "Many institutions and businesses are still stuck with fragmented workflows, juggling spreadsheets, group chats, and paper forms. We bring everything together into a single unified system, keeping all your data centralized with clear ownership at every stage. We start by mapping out your current workflow, then build a system tailored to what you truly need.",
+          "We design and build custom ERP systems that connect core business processes—such as purchasing, inventory, sales, finance, and operations—in one source of truth. Every implementation starts with process and requirements mapping, so modules, approvals, reports, and access controls fit the way your business works instead of forcing it into a generic system.",
         features: [
-          "Automation of internal approval workflows & bureaucracy",
-          "Real-time inventory management, databases, and data summaries",
-          "Daily operational performance analytics dashboards",
-          "Multi-level permission controls (Admin, Client, Staff, Management)",
+          "ERP modules tailored to your needs: inventory, purchasing, sales, finance, or HR",
+          "Integrated workflows and approvals across departments",
+          "Reports and operational dashboards from centralized data",
+          "Role-based access controls and user activity logs",
         ],
         tech: ["Next.js", "TypeScript", "PostgreSQL", "NestJS", "Docker"],
         target:
-          "Ideal for: Distribution companies, educational institutions, foundations, and manufacturing plants.",
+          "Ideal for: Businesses with complex cross-department workflows, including distribution, manufacturing, education, and multi-unit organizations.",
       },
       {
         id: "web-app",
         icon: LuLayoutTemplate,
-        title: "Web Applications & SaaS",
+        title: "Web Applications",
         tagline:
-          "Building high-scale digital products that are fast and ready to launch.",
+          "Building browser-based applications for your customers and internal teams.",
         description:
-          "Have a software-as-a-service (SaaS) product idea or customer portal platform? We help you execute from database architecture and high-speed reactive frontend development to international payment gateway integrations.",
+          "We build web applications for your specific needs—from customer portals and dashboards to workflow-driven internal tools. We handle the interface, backend and database, required integrations, and deployment so your application is easy to use in a browser across devices.",
         features: [
-          "Modern frontend architecture with Next.js & Tailwind CSS",
-          "Payment gateway integration (Midtrans, Stripe, PayPal, etc.)",
-          "High-performance optimization (Core Web Vitals & SEO-ready)",
-          "Advanced data security & end-to-end encryption",
+          "Customer portals, dashboards, and browser-based internal applications",
+          "Responsive interfaces for desktop, tablet, and mobile",
+          "API, payment, or third-party service integrations as scoped",
+          "Application testing, performance optimization, and deployment",
         ],
         tech: [
           "React",
@@ -175,7 +175,7 @@ export const servicesContentByLang = {
           "REST/GraphQL API",
         ],
         target:
-          "Ideal for: Tech startups, digital product founders, and scaling agencies.",
+          "Ideal for: Businesses that need a purpose-built web application for their customers or internal workflows.",
       },
       {
         id: "mobile-app",

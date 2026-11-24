@@ -33,10 +33,10 @@ export const navLinksByLang: Record<LangCode, NavItem[]> = {
           title: "Services",
           links: [
             {
-              label: "Custom Operational Systems",
+              label: "Custom ERP Systems",
               href: "/services#ops-system",
             },
-            { label: "Web Applications & SaaS", href: "/services#web-app" },
+            { label: "Web Applications", href: "/services#web-app" },
             {
               label: "Mobile Apps",
               href: "/services#mobile-app",
@@ -70,10 +70,10 @@ export const navLinksByLang: Record<LangCode, NavItem[]> = {
           title: "Layanan",
           links: [
             {
-              label: "Sistem Operasional Kustom",
+              label: "Sistem ERP Kustom",
               href: "/services#ops-system",
             },
-            { label: "Aplikasi Web & SaaS", href: "/services#web-app" },
+            { label: "Aplikasi Web", href: "/services#web-app" },
             { label: "Aplikasi Mobile", href: "/services#mobile-app" },
             { label: "Pemeliharaan Sistem", href: "/services#maintenance" },
           ],
@@ -124,9 +124,9 @@ const enContent = {
       { label: "Projects", href: "/projects" },
     ],
     serviceLinks: [
-      { label: "Custom Operational Systems", href: "/services#ops-system" },
-      { label: "Web Applications & SaaS", href: "/services#web-app" },
-      { label: "Institutional Websites", href: "/services#company-profile" },
+      { label: "Custom ERP Systems", href: "/services#ops-system" },
+      { label: "Web Applications", href: "/services#web-app" },
+      { label: "Mobile Apps", href: "/services#mobile-app" },
       { label: "System Maintenance", href: "/services#maintenance" },
     ],
     copyright: "© 2026 LEXTEL BY LEXENTIFY. ALL RIGHTS RESERVED.",
@@ -160,9 +160,9 @@ export const landingContentByLang: Record<LangCode, LandingContentType> = {
         { label: "Tentang Kami", href: "/about" },
       ],
       serviceLinks: [
-        { label: "Sistem Operasional Kustom", href: "/services#ops-system" },
-        { label: "Aplikasi Web & SaaS", href: "/services#web-app" },
-        { label: "Website Institusi", href: "/services#company-profile" },
+        { label: "Sistem ERP Kustom", href: "/services#ops-system" },
+        { label: "Aplikasi Web", href: "/services#web-app" },
+        { label: "Aplikasi Mobile", href: "/services#mobile-app" },
         { label: "Pemeliharaan Sistem", href: "/services#maintenance" },
       ],
       copyright:

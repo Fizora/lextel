@@ -13,7 +13,7 @@ import { LuArrowRight } from "react-icons/lu";
 
 // true hanya di browser, supaya bahasa dari localStorage tidak
 // menyebabkan hydration mismatch (pengganti useState + useEffect)
-const subscribe = () => () => { };
+const subscribe = () => () => {};
 const useMounted = () =>
   useSyncExternalStore(
     subscribe,
@@ -65,7 +65,7 @@ function FooterColumn({
   return (
     <div>
       <h3 className={headingClass}>{title}</h3>
-      <ul className={`space-y-3 text-[13px] ${mono ? "font-mono" : ""}`}>
+      <ul className={`space-y-3 text-[13px] `}>
         {links.map((link) => (
           <li key={`${link.href}-${link.label}`}>
             <FooterLink href={link.href} className={`${linkClass} break-all`}>
@@ -137,7 +137,7 @@ export default function Footer() {
             <p className={mutedLabel}>{content.ctaTitle}</p>
 
             <div className="mt-8 flex items-end justify-between gap-6">
-              <span className="break-all font-mono text-[14px] md:text-[15px]">
+              <span className="break-all text-[14px] md:text-[15px]">
                 {contactInfo.email}
               </span>
               <span className="flex size-11.5 shrink-0 items-center justify-center bg-black text-white transition-colors group-hover:bg-black/80 dark:bg-white dark:text-black dark:group-hover:bg-white/80">

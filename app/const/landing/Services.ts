@@ -1,10 +1,4 @@
 ﻿import { LangCode } from "@/app/context/LangaugeContext";
-import {
-  LuCpu,
-  LuLayoutTemplate,
-  LuWrench,
-  LuSmartphone,
-} from "react-icons/lu";
 
 export interface ServiceItem {
   id: string;
@@ -39,30 +33,30 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
     items: [
       {
         id: "ops-system",
-        tag: "01 / CORE SYSTEM",
-        title: "Custom Operational Systems",
+        tag: "01 / CUSTOM ERP",
+        title: "Custom ERP Systems",
         description:
-          "Many institutions and businesses are still stuck with fragmented workflows, juggling spreadsheets, group chats, and paper forms. We bring everything together into a single unified system, keeping all your data centralized with clear ownership at every stage. We start by mapping out your current workflow, then build a system tailored to what you truly need.",
+          "We design and build custom ERP systems that connect core business processes—such as purchasing, inventory, sales, finance, and operations—in one source of truth. Every implementation starts with process and requirements mapping, so modules, approvals, reports, and access controls fit the way your business works.",
         deliverables: [
-          "Automation of internal approval workflows & bureaucracy",
-          "Real-time inventory management, databases, and data summaries",
-          "Daily operational performance analytics dashboards",
-          "Multi-level permission controls (Admin, Client, Staff, Management)",
+          "ERP modules tailored to your needs: inventory, purchasing, sales, finance, or HR",
+          "Integrated workflows and approvals across departments",
+          "Reports and operational dashboards from centralized data",
+          "Role-based access controls and user activity logs",
         ],
         ctaLabel: "Discuss Your System",
         href: "mailto:info@lexentify.com",
       },
       {
         id: "web-app",
-        tag: "02 / WEB & SAAS",
-        title: "Web Applications & SaaS",
+        tag: "02 / WEB APPLICATION",
+        title: "Web Applications",
         description:
-          "Have a software-as-a-service (SaaS) product idea or customer portal platform? We help you execute from database architecture and high-speed reactive frontend development to international payment gateway integrations.",
+          "We build web applications for your specific needs—from customer portals and dashboards to workflow-driven internal tools. We handle the interface, backend and database, required integrations, and deployment so your application is easy to use in a browser across devices.",
         deliverables: [
-          "Modern frontend architecture with Next.js & Tailwind CSS",
-          "Payment gateway integration (Midtrans, Stripe, PayPal, etc.)",
-          "High-performance optimization (Core Web Vitals & SEO-ready)",
-          "Advanced data security & end-to-end encryption",
+          "Customer portals, dashboards, and browser-based internal applications",
+          "Responsive interfaces for desktop, tablet, and mobile",
+          "API, payment, or third-party service integrations as scoped",
+          "Application testing, performance optimization, and deployment",
         ],
         ctaLabel: "Consult Web App",
         href: "mailto:info@lexentify.com",
@@ -113,30 +107,30 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
     items: [
       {
         id: "ops-system",
-        tag: "01 / SISTEM INTI",
-        title: "Sistem Operasional Kustom",
+        tag: "01 / ERP KUSTOM",
+        title: "Sistem ERP Kustom",
         description:
-          "Banyak instansi dan perusahaan masih terjebak dalam alur kerja yang terpecah, mulai dari spreadsheet, grup chat, hingga formulir kertas. Kami menyatukannya ke dalam satu sistem terpadu agar seluruh data terpusat dan setiap tahapan kerja memiliki penanggung jawab yang jelas. Prosesnya kami mulai dengan memetakan alur kerja Anda saat ini, lalu membangun sistem yang benar-benar sesuai kebutuhan.",
+          "Kami merancang dan membangun sistem ERP kustom untuk menghubungkan proses bisnis inti—seperti pembelian, persediaan, penjualan, keuangan, dan operasional—dalam satu sumber data. Setiap implementasi dimulai dengan pemetaan proses dan kebutuhan, sehingga modul, alur persetujuan, laporan, serta hak akses mengikuti cara kerja bisnis Anda.",
         deliverables: [
-          "Otomatisasi alur persetujuan & birokrasi internal",
-          "Manajemen inventaris, database, dan rekap data real-time",
-          "Dashboard analitik performa operasional harian",
-          "Hak akses multi-level (Admin, Klien, Staf, Manajemen)",
+          "Modul ERP sesuai kebutuhan: persediaan, pembelian, penjualan, keuangan, atau SDM",
+          "Alur kerja dan persetujuan lintas divisi yang terintegrasi",
+          "Laporan serta dashboard operasional dari data terpusat",
+          "Hak akses berbasis peran dan jejak aktivitas pengguna",
         ],
         ctaLabel: "Diskusikan Sistem Anda",
         href: "mailto:info@lexentify.com",
       },
       {
         id: "web-app",
-        tag: "02 / WEB & SAAS",
-        title: "Aplikasi Web & SaaS",
+        tag: "02 / APLIKASI WEB",
+        title: "Aplikasi Web",
         description:
-          "Punya ide produk software-as-a-service (SaaS) atau platform portal pelanggan? Kami membantu Anda mengeksekusi dari tahap arsitektur database, pengembangan frontend reaktif berkecepatan tinggi, hingga integrasi sistem pembayaran internasional.",
+          "Kami mengembangkan aplikasi web sesuai kebutuhan spesifik Anda—mulai dari portal pelanggan dan dashboard hingga aplikasi internal berbasis alur kerja. Kami menangani antarmuka, backend dan basis data, integrasi layanan yang dibutuhkan, serta deployment agar aplikasi mudah digunakan melalui browser di berbagai perangkat.",
         deliverables: [
-          "Arsitektur frontend modern dengan Next.js & Tailwind CSS",
-          "Integrasi payment gateway (Midtrans, Stripe, PayPal, dll)",
-          "Optimasi performa tinggi (Core Web Vitals & SEO-ready)",
-          "Keamanan data tingkat lanjut & enkripsi end-to-end",
+          "Portal pelanggan, dashboard, dan aplikasi internal berbasis browser",
+          "Antarmuka responsif untuk desktop, tablet, dan ponsel",
+          "Integrasi API, pembayaran, atau layanan pihak ketiga sesuai ruang lingkup",
+          "Pengujian, optimasi performa, dan deployment aplikasi",
         ],
         ctaLabel: "Konsultasi Aplikasi",
         href: "mailto:info@lexentify.com",
@@ -163,7 +157,7 @@ export const servicesContentByLang: Record<LangCode, ServicesContent> = {
         description:
           "Perangkat lunak membutuhkan pemantauan, pembaruan keamanan, dan optimasi berkala. Melalui paket pemeliharaan bulanan kami, Anda tidak perlu cemas tentang downtime, kerentanan keamanan, atau lambatnya performa server.",
         deliverables: [
-          "Monitoring uptime server otomatis 24 jam sehari",
+          "Monitoring uptime server otomatis 24/7",
           "Pencadangan (backup) data berkala yang aman",
           "Pembaruan patch keamanan dan dependensi pustaka",
           "Alokasi jam pengembangan prioritas untuk fitur baru",
